@@ -307,22 +307,28 @@ function showResults() {
 
 function handleFormSubmit(event) {
     event.preventDefault();
-    const name = document.getElementById('name').value;
-    const email = document.getElementById('email').value;
-    const phone = document.getElementById('phone').value;
 
-    console.log({ name, email, phone });
+    const myForm = event.target;
+    const formData = new FormData(myForm);
 
-    const formSection = document.getElementById('form-section');
-    formSection.style.display = 'none';
+    fetch("/", {
+        method: "POST",
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: new URLSearchParams(formData).toString(),
+    })
+    .then(() => {
+        const formSection = document.getElementById('form-section');
+        formSection.style.display = 'none';
 
-    const resultsSection = document.getElementById('results-section');
-    resultsSection.style.display = 'block';
+        const resultsSection = document.getElementById('results-section');
+        resultsSection.style.display = 'block';
 
-    const resumeSection = document.getElementById('resume-section');
-    resumeSection.style.display = 'block';
+        const resumeSection = document.getElementById('resume-section');
+        resumeSection.style.display = 'block';
 
-    displayFinalResult();
+        displayFinalResult();
+    })
+    .catch((error) => alert(error));
 }
 
 function displayFinalResult() {
