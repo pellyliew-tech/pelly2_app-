@@ -1,66 +1,87 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Discover Your Work Talent</title>
+    <title>Career Strength Assessment</title>
+    <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap" rel="stylesheet">
-    <link href="style.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700&family=Inter:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
+
 <body>
-    <div class="language-switcher">
-        <a href="#" onclick="setLanguage('en')">English</a> | <a href="#" onclick="setLanguage('cn')">中文</a>
+
+    <div id="language-switcher">
+        <button onclick="setLanguage('en')">English</button>
+        <button onclick="setLanguage('cn')">中文</button>
     </div>
 
-    <div class="main-container">
-        <div id="progress-bar-container">
+    <div class="container">
+        <!-- Welcome Section -->
+        <section id="welcome-section">
+            <div class="logo-container">
+                <img src="newlogo.gif.png" alt="Logo" class="logo-image">
+            </div>
+            <p class="tagline">职场 6 大优势测评</p>
+            <h1 class="title">你不是没有方向，只是还没读懂自己</h1>
+            <p class="lead">用 5 分钟，看清你的职场天赋与工作模式，找到真正适合你发展的方向。</p>
+            <button id="start-btn" class="cta-button">➡ 开始测验 · 找出你的实力</button>
+        </section>
+
+        <!-- Progress Bar -->
+        <div id="progress-container" style="display:none;">
             <div id="progress-bar"></div>
+            <span id="progress-text"></span>
         </div>
 
-        <div id="welcome-section" class="active">
-            <h1 class="title">Discover Your Work Talent / 找到你的打工天赋</h1>
-            <p class="lead">Complete our personality-based work talent assessment to discover your strengths.</p>
-            <button id="start-btn" class="btn">Start</button>
-        </div>
+        <!-- Assessment Section -->
+        <section id="assessment-section" style="display:none;"></section>
 
-        <div id="assessment-section">
-            <!-- Assessment questions will be injected here by script.js -->
-        </div>
-
-        <div id="form-section" style="display: none;">
-            <h2>Your Results</h2>
-            <p>Please provide your contact information to see your results and get matched with jobs.</p>
+        <!-- Form Section -->
+        <section id="form-section" style="display:none;">
+            <h2>就差一步！</h2>
+            <p>请提供您的联系信息，以查看您的详细结果并匹配合适的工作。</p>
             <form id="lead-form" name="contact" data-netlify="true">
-                <input type="hidden" name="form-name" value="contact" />
                 <div class="form-group">
-                    <label for="name">Name</label>
+                    <label for="name">姓名</label>
                     <input type="text" id="name" name="name" required>
                 </div>
                 <div class="form-group">
-                    <label for="email">Email</label>
+                    <label for="email">电子邮件</label>
                     <input type="email" id="email" name="email" required>
                 </div>
                 <div class="form-group">
-                    <label for="phone">Phone Number</label>
-                    <input type="tel" id="phone" name="phone" required>
+                    <label for="phone">电话号码</label>
+                    <input type="tel" id="phone" name="phone">
                 </div>
-                <button type="submit" class="btn">See My Results</button>
+                <button type="submit" class="cta-button">查看我的结果</button>
             </form>
-        </div>
+        </section>
 
-        <div id="results-section" style="display: none;">
-            <!-- Assessment results will be injected here by script.js -->
-        </div>
+        <!-- Results Section -->
+        <section id="results-section" style="display:none;">
+            <div id="chart-explanation"></div>
+            <div class="chart-container">
+                <canvas id="results-chart"></canvas>
+            </div>
+            <h2 id="ranked-list-title"></h2>
+            <div id="ranked-list"></div>
+            <div id="analysis-details-container"></div>
+        </section>
+        
+        <!-- Resume Upload Section -->
+        <section id="resume-section" style="display:none;">
+            <h2>迈出下一步</h2>
+            <p>将您的简历上传到 Ricebowl 的 AI 工作匹配器，为您的才华找到完美的工作。</p>
+            <a href="https://www.ricebowl.my/career-advice/career-tools/ai-job-matcher?entry_point=homepage_mini_icon&utm_source=website&utm_medium=jobmatcher&utm_campaign=rb_personality" target="_blank" class="cta-button">上传您的简历</a>
+        </section>
 
-        <div id="resume-section" class="text-center" style="display: none;">
-            <h2>Take the Next Step</h2>
-            <p>Upload your resume to Ricebowl’s AI Job Matcher to find the perfect job for your talents.</p>
-            <a href="https://www.ricebowl.my/career-advice/career-tools/ai-job-matcher?entry_point=homepage_mini_icon&utm_source=website&utm_medium=jobmatcher&utm_campaign=rb_personality" class="btn">Upload Your Resume</a>
-        </div>
     </div>
 
     <script src="script.js"></script>
 </body>
+
 </html>
