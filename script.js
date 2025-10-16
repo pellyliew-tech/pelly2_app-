@@ -192,7 +192,7 @@ function renderQuestionPage() {
         questionContainer.id = `question-${question.id}`;
 
         const questionElement = document.createElement('h3');
-        questionElement.textContent = `(${questionIndex + 1}/${assessmentData.length}) ${statementText}`;
+        questionElement.textContent = `${questionIndex + 1}. ${statementText}`;
         questionContainer.appendChild(questionElement);
 
         const optionsContainer = document.createElement('div');

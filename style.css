@@ -87,6 +87,14 @@ p.lead {
     height: auto;
 }
 
+.cover-image {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 2rem;
+    box-shadow: var(--shadow);
+}
+
 /* --- Buttons --- */
 .cta-button {
     background-color: var(--primary-color);
@@ -248,6 +256,10 @@ p.lead {
     display: flex;
     justify-content: space-between;
     margin-top: 2rem;
+}
+
+.navigation-buttons button:only-child {
+    margin-left: auto; /* Push the button to the right if it's the only one */
 }
 
 /* --- Form Section --- */
