@@ -320,17 +320,20 @@ function handleFormSubmit(event) {
         n8nPayload[`q${id}`] = allAnswers[id].score;
     }
     
-    // 确保结果在表单提交后显示
+    // 🚨 核心调试：查看最终发送的 Payload 🚨
+    console.log("最终发送给 n8n 的 Payload:", n8nPayload); 
+    
+    // 确保结果在表单提交后显示 (此部分逻辑保持不变)
     document.getElementById('form-section').style.display = 'none';
     document.getElementById('results-section').style.display = 'block';
     document.getElementById('resume-section').style.display = 'block';
     displayFinalResult();
 
     // ---  2. 异步：发送完整数据给 n8n Webhook ---
-fetch("https://pellyliew.app.n8n.cloud/webhook/1da87705-3fa8-4530-8a69-3579151bbac6", { // <-- 必须使用引号和括号包围URL
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify(n8nPayload), // 发送包含所有问卷答案的 JSON
+    fetch("https://pellyliew.app.n8n.cloud/webhook/1da87705-3fa8-4530-8a69-3579151bbac6", { 
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(n8nPayload), // 发送包含所有问卷答案的 JSON
     })
     .then(response => {
         if (!response.ok) {
@@ -350,7 +353,6 @@ fetch("https://pellyliew.app.n8n.cloud/webhook/1da87705-3fa8-4530-8a69-3579151bb
         console.error("Netlify form submission error:", error);
     });
 }
-
 function displayFinalResult() {
     const sortedAdvantages = Object.keys(userScores).map(key => ({
         id: key,
