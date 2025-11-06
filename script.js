@@ -305,25 +305,50 @@ function handleFormSubmit(event) {
     event.preventDefault();
     const myForm = event.target;
     const formData = new FormData(myForm);
+    
+    // --- 1. 准备发送给 n8n 的数据 (包含联系信息和问卷答案) ---
+    const n8nPayload = {};
+    
+    // 1a. 添加联系信息 (name, email, phone)
+    formData.forEach((value, key) => {
+        n8nPayload[key] = value;
+    });
 
+    // 1b. 添加问卷答案 (q1 - q30)
+    for (const id in allAnswers) {
+        // allAnswers 是您的前端脚本中保存问卷答案的全局变量
+        n8nPayload[`q${id}`] = allAnswers[id].score;
+    }
+    
+    // 确保结果在表单提交后显示
+    document.getElementById('form-section').style.display = 'none';
+    document.getElementById('results-section').style.display = 'block';
+    document.getElementById('resume-section').style.display = 'block';
+    displayFinalResult();
+
+    // --- 2. 异步：发送完整数据给 n8n Webhook ---
+    fetch("YOUR_N8N_PRODUCTION_WEBHOOK_URL", { // <-- 必须替换成您的真实 URL！
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(n8nPayload), // 发送包含所有问卷答案的 JSON
+    })
+    .then(response => {
+        if (!response.ok) {
+            console.error('n8n webhook failed with status:', response.status);
+        }
+    })
+    .catch((error) => {
+        console.error("n8n webhook error:", error);
+    });
+
+    // --- 3. 仍然向 Netlify 提交表单 (保持 Netlify 的内置记录功能) ---
     fetch("/", {
-            method: "POST",
-            headers: { "Content-Type": "application/x-www-form-urlencoded" },
-            body: new URLSearchParams(formData).toString(),
-        })
-        .then(() => {
-            document.getElementById('form-section').style.display = 'none';
-            document.getElementById('results-section').style.display = 'block';
-            document.getElementById('resume-section').style.display = 'block';
-            displayFinalResult();
-        })
-        .catch((error) => {
-            console.error("Form submission error:", error);
-            document.getElementById('form-section').style.display = 'none';
-            document.getElementById('results-section').style.display = 'block';
-            document.getElementById('resume-section').style.display = 'block';
-            displayFinalResult();
-        });
+        method: "POST",
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: new URLSearchParams(formData).toString(),
+    }).catch(error => {
+        console.error("Netlify form submission error:", error);
+    });
 }
 
 function displayFinalResult() {
