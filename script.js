@@ -327,7 +327,7 @@ function handleFormSubmit(event) {
     displayFinalResult();
 
     // --- 2. 异步：发送完整数据给 n8n Webhook ---
-    fetchhttps://pellyliew.app.n8n.cloud/webhook/1da87705-3fa8-4530-8a69-3579151bbac6", { // <-- 必须替换成您的真实 URL！
+    fetchhttps://pellyliew.app.n8n.cloud/webhook/1da87705-3fa8-4530-8a69-3579151bbac6", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(n8nPayload), // 发送包含所有问卷答案的 JSON
