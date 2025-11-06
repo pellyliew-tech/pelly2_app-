@@ -305,52 +305,54 @@ function handleFormSubmit(event) {
     event.preventDefault();
     const myForm = event.target;
     const formData = new FormData(myForm);
-    
-    // --- 1. 准备发送给 n8n 的数据 (包含联系信息和问卷答案) ---
-    const n8nPayload = {};
-    
-    // 1a. 添加联系信息 (name, email, phone)
-    formData.forEach((value, key) => {
-        n8nPayload[key] = value;
-    });
 
-    // 1b. 添加问卷答案 (q1 - q30)
+    // 1. 准备发送给 n8n 的完整数据 (包含分数)
+    const n8nPayload = {};
+    formData.forEach((value, key) => { n8nPayload[key] = value; }); // 联系信息
+    
+    // 附加问卷分数 (q1, q2... q30)
     for (const id in allAnswers) {
-        // allAnswers 是您的前端脚本中保存问卷答案的全局变量
-        n8nPayload[`q${id}`] = allAnswers[id].score;
+        // 从 allAnswers 对象中提取分数，并将其添加到 n8nPayload
+        n8nPayload[`q${id}`] = allAnswers[id].score; 
     }
     
-    // 🚨 核心调试：查看最终发送的 Payload 🚨
-    console.log("最终发送给 n8n 的 Payload:", n8nPayload); 
+    // ⭐️ 2. 异步：发送完整数据给 n8n Webhook (使用 Production URL)
+    const n8nUrl = "https://pellyliew.app.n8n.cloud/webhook/1da87705-3fa8-4530-8a69-3579151bbac6"; // 您的生产 Webhook URL
     
-    // 确保结果在表单提交后显示 (此部分逻辑保持不变)
-    document.getElementById('form-section').style.display = 'none';
-    document.getElementById('results-section').style.display = 'block';
-    document.getElementById('resume-section').style.display = 'block';
-    displayFinalResult();
-
-    // ---  2. 异步：发送完整数据给 n8n Webhook ---
-    fetch("https://pellyliew.app.n8n.cloud/webhook/1da87705-3fa8-4530-8a69-3579151bbac6", { 
+    fetch(n8nUrl, { 
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(n8nPayload), // 发送包含所有问卷答案的 JSON
+        body: JSON.stringify(n8nPayload), // <--- 包含 q1-q30 的完整数据
     })
     .then(response => {
         if (!response.ok) {
-            console.error('n8n webhook failed with status:', response.status);
+             // 尽管 CORS 已解决，但如果 n8n 响应错误，我们会在这里看到
+             console.error("n8n Webhook responded with an error status:", response.status);
         }
     })
     .catch((error) => {
-        console.error("n8n webhook error:", error);
+        console.error("n8n Webhook fetch failed (Likely CORS or Network Error):", error); 
     });
-
-    // --- 3. 仍然向 Netlify 提交表单 (保持 Netlify 的内置记录功能) ---
-    fetch("/", {
+    
+    // --- 3. 仍然向 Netlify 提交表单 (保留 Netlify 的内置记录) ---
+    fetch("/", { 
         method: "POST",
         headers: { "Content-Type": "application/x-www-form-urlencoded" },
         body: new URLSearchParams(formData).toString(),
-    }).catch(error => {
+    })
+    .then(() => {
+        document.getElementById('form-section').style.display = 'none';
+        document.getElementById('results-section').style.display = 'block';
+        document.getElementById('resume-section').style.display = 'block';
+        displayFinalResult();
+    })
+    .catch((error) => {
+        // 如果 Netlify 提交失败，仍然显示结果
         console.error("Netlify form submission error:", error);
+        document.getElementById('form-section').style.display = 'none';
+        document.getElementById('results-section').style.display = 'block';
+        document.getElementById('resume-section').style.display = 'block';
+        displayFinalResult();
     });
 }
 function displayFinalResult() {
