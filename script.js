@@ -304,50 +304,39 @@ function showForm() {
 function handleFormSubmit(event) {
     event.preventDefault();
     const myForm = event.target;
-    const formData = new FormData(myForm);
-
-    // 1. 准备发送给 n8n 的完整数据 (包含分数)
-    const n8nPayload = {};
-    formData.forEach((value, key) => { n8nPayload[key] = value; }); // 联系信息
     
-    // 附加问卷分数 (q1, q2... q30)
+    // ⭐️ 核心修改：将分数填充到隐藏的表单字段中 ⭐️
+    // 您的 allAnswers 对象已确认是正确的
     for (const id in allAnswers) {
-        // 从 allAnswers 对象中提取分数，并将其添加到 n8nPayload
-        n8nPayload[`q${id}`] = allAnswers[id].score; 
+        const fieldName = `q${id}`;
+        // 从 allAnswers 对象中提取分数
+        const score = allAnswers[id].score;
+        
+        // 找到对应的隐藏输入字段 (例如 name="q1")，并设置其值
+        const hiddenInput = myForm.querySelector(`input[name="${fieldName}"]`);
+        if (hiddenInput) {
+            hiddenInput.value = score;
+        }
     }
     
-    // ⭐️ 2. 异步：发送完整数据给 n8n Webhook (使用 Production URL)
-    const n8nUrl = "https://pellyliew.app.n8n.cloud/webhook/1da87705-3fa8-4530-8a69-3579151bbac6"; // 您的生产 Webhook URL
+    // 1. 提交给 Netlify (现在表单中包含了 name, email, phone, q1-q30)
+    const formData = new FormData(myForm);
     
-    fetch(n8nUrl, { 
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(n8nPayload), // <--- 包含 q1-q30 的完整数据
-    })
-    .then(response => {
-        if (!response.ok) {
-             // 尽管 CORS 已解决，但如果 n8n 响应错误，我们会在这里看到
-             console.error("n8n Webhook responded with an error status:", response.status);
-        }
-    })
-    .catch((error) => {
-        console.error("n8n Webhook fetch failed (Likely CORS or Network Error):", error); 
-    });
-    
-    // --- 3. 仍然向 Netlify 提交表单 (保留 Netlify 的内置记录) ---
+    // 移除原有的 custom fetch 请求，只保留 Netlify 提交
     fetch("/", { 
         method: "POST",
         headers: { "Content-Type": "application/x-www-form-urlencoded" },
         body: new URLSearchParams(formData).toString(),
     })
     .then(() => {
+        // 成功后显示结果
         document.getElementById('form-section').style.display = 'none';
         document.getElementById('results-section').style.display = 'block';
         document.getElementById('resume-section').style.display = 'block';
         displayFinalResult();
     })
     .catch((error) => {
-        // 如果 Netlify 提交失败，仍然显示结果
+        // 提交失败，仍然显示结果
         console.error("Netlify form submission error:", error);
         document.getElementById('form-section').style.display = 'none';
         document.getElementById('results-section').style.display = 'block';
