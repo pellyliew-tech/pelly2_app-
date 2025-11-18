@@ -1093,10 +1093,13 @@
                 }
             }
 
-            // 获取超能力数据 - use bilingual data if available
-            const superpowersData = typeof bilingualData !== 'undefined' ? bilingualData.superpowers[currentLanguage] : superpowers;
+            // 获取超能力数据 - always use local superpowers data
+            const superpowersData = superpowers;
             const superpowerData = superpowersData.find(s => s.id === resultSuperpowerId);
             const partnerData = superpowersData.find(s => s.id === superpowerData.partner.id);
+
+            console.log('Result Superpower ID:', resultSuperpowerId);
+            console.log('Superpower Data:', superpowerData);
 
             // 更新结果页面
             resultName.textContent = userData.name;
@@ -1111,7 +1114,7 @@
             // 超能力结果
             superpowerResult.innerHTML = `
                 <div class="flex flex-col items-center">
-                    <img src="${superpowerData.icon}" alt="${superpowerData.name}" class="w-[980px] max-w-full h-auto object-contain mb-6 rounded-xl shadow-lg">
+                    <img src="${superpowerData.icon}" alt="${superpowerData.name}" class="w-full max-w-md h-auto object-contain mb-6 rounded-xl shadow-lg">
                     <h3 class="text-[clamp(1.5rem,3vw,2rem)] font-bold text-${superpowerData.color} mb-2">${superpowerData.name}</h3>
                     <p class="text-gray-700 text-center">${superpowerData.description}</p>
                 </div>
@@ -1259,6 +1262,6 @@
     </script>
 
     <!-- Bilingual data -->
-    <script src="translations-data.js"></script>
+    <script src="https://ricebowl-personality-test.netlify.app/translations-data.js"></script>
 
 </body></html>
