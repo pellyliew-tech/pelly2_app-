@@ -192,6 +192,7 @@ const bilingualData = {
             {
                 id: "zen-master",
                 name: "职场佛系王",
+                icon: "https://ricebowl-personality-test.netlify.app/chill-master.jpg",
                 description: "你拥有平和的心态，能在繁忙的工作中保持冷静，从容应对各种挑战。",
                 catchphrase: "慢慢来，一切都会好的。",
                 performance: [
@@ -210,6 +211,7 @@ const bilingualData = {
             {
                 id: "detail-inspector",
                 name: "细节纠察队",
+                icon: "https://ricebowl-personality-test.netlify.app/detail-squad.jpg",
                 description: "你拥有敏锐的洞察力，能发现别人忽略的细节，确保工作完美无瑕。",
                 catchphrase: "等一下，这里有个小问题...",
                 performance: [
@@ -228,6 +230,7 @@ const bilingualData = {
             {
                 id: "mood-manager",
                 name: "氛围管理师",
+                icon: "https://ricebowl-personality-test.netlify.app/energy-keeper.jpg",
                 description: "你拥有营造良好工作氛围的能力，能促进团队合作，提高工作效率。",
                 catchphrase: "大家一起加油！",
                 performance: [
@@ -246,6 +249,7 @@ const bilingualData = {
             {
                 id: "idea-harvester",
                 name: "点子收割机",
+                icon: "https://ricebowl-personality-test.netlify.app/idea-hunter.jpg",
                 description: "你拥有无穷无尽的创意，总能在关键时刻提出令人眼前一亮的点子。",
                 catchphrase: "这个问题，我有个idea！",
                 performance: [
@@ -264,6 +268,7 @@ const bilingualData = {
             {
                 id: "zero-second-savior",
                 name: "零秒救世主",
+                icon: "https://ricebowl-personality-test.netlify.app/quick-fixer.jpg",
                 description: "你拥有超强的应变能力，能在紧急情况下迅速做出反应，解决问题。",
                 catchphrase: "别担心，我搞定！",
                 performance: [
@@ -284,6 +289,7 @@ const bilingualData = {
             {
                 id: "zen-master",
                 name: "Chill Master",
+                icon: "https://ricebowl-personality-test.netlify.app/chill-master.jpg",
                 description: "You possess a peaceful mindset, able to stay calm in busy work and handle various challenges with ease.",
                 catchphrase: "Take it easy, everything will be fine.",
                 performance: [
@@ -302,6 +308,7 @@ const bilingualData = {
             {
                 id: "detail-inspector",
                 name: "Detail Inspector",
+                icon: "https://ricebowl-personality-test.netlify.app/detail-squad.jpg",
                 description: "You have keen insight, able to spot details others miss and ensure flawless work.",
                 catchphrase: "Wait, there's a small issue here...",
                 performance: [
@@ -320,6 +327,7 @@ const bilingualData = {
             {
                 id: "mood-manager",
                 name: "Energy Keeper",
+                icon: "https://ricebowl-personality-test.netlify.app/energy-keeper.jpg",
                 description: "You can create a positive work atmosphere, promote teamwork, and improve efficiency.",
                 catchphrase: "Let's go team!",
                 performance: [
@@ -338,6 +346,7 @@ const bilingualData = {
             {
                 id: "idea-harvester",
                 name: "Idea Hunter",
+                icon: "https://ricebowl-personality-test.netlify.app/idea-hunter.jpg",
                 description: "You have endless creativity, always coming up with brilliant ideas at key moments.",
                 catchphrase: "I have an idea for this!",
                 performance: [
@@ -356,6 +365,7 @@ const bilingualData = {
             {
                 id: "zero-second-savior",
                 name: "Quick Fixer",
+                icon: "https://ricebowl-personality-test.netlify.app/quick-fixer.jpg",
                 description: "You have exceptional adaptability, able to react quickly in emergencies and solve problems.",
                 catchphrase: "Don't worry, I got this!",
                 performance: [
