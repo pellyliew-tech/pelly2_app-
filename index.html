@@ -382,6 +382,11 @@
                     <div id="suitable-jobs" class="flex flex-wrap gap-2">
                         <!-- 适合的工作类型将通过JS动态添加 -->
                     </div>
+                    <div class="mt-4">
+                        <a href="https://www.ricebowl.my/jobsearch?entry=title&utm_source=website&utm_medium=suitable_job&utm_campaign=rb_personality" target="_blank" class="btn-primary inline-flex items-center text-sm px-4 py-2">
+                            <i class="fa fa-search mr-2"></i><span id="find-jobs-btn-text">Find Suitable Jobs</span>
+                        </a>
+                    </div>
                 </div>
                 
                 <div class="bg-blue-50 p-4 rounded-xl mb-8">
@@ -476,6 +481,7 @@
             resume_cta_title: { zh: '上传你的简历', en: 'Upload Your Resume' },
             resume_cta_button: { zh: '上传你的简历', en: 'Upload Your Resume' },
             resume_cta_note: { zh: '点击按钮，找到最匹配的工作！', en: 'Click the button to find the perfect job match!' },
+            find_jobs_button: { zh: '寻找合适工作', en: 'Find Suitable Jobs' },
             please_select_option: { zh: '请选择一个选项', en: 'Please select an option' },
             footer_text: { zh: '© 2025 Ricebowl 铁饭网 | 职场超能力测试 | Agensi Pekerjaan Ajobthing Sdn Bhd', en: '© 2025 Ricebowl | Workplace Superpower Test | Agensi Pekerjaan Ajobthing Sdn Bhd' }
         };
@@ -598,6 +604,9 @@
 
             const partnerTitle = document.querySelector('.bg-blue-50 h3');
             if (partnerTitle) partnerTitle.textContent = translations.partner_title[currentLanguage];
+
+            const findJobsBtnText = document.getElementById('find-jobs-btn-text');
+            if (findJobsBtnText) findJobsBtnText.textContent = translations.find_jobs_button[currentLanguage];
 
             const restartBtn = document.getElementById('restart-btn');
             if (restartBtn) {
