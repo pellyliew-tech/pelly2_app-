@@ -292,6 +292,7 @@
                 </h2>
                 
                <form id="data-form" name="contact" method="POST" data-netlify="true" class="space-y-4">
+                    <input type="hidden" name="form-name" value="contact" />
                     <div>
                         <label for="name" class="block text-gray-700 mb-2">姓名</label>
                         <input type="text" id="name" name="name" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary" placeholder="例如：小明" required="">
@@ -580,13 +581,13 @@
             const challengeTitle = document.querySelector('.bg-yellow-50 h3');
             if (challengeTitle) challengeTitle.textContent = translations.challenge_title[currentLanguage];
 
-            const performanceTitle = document.querySelectorAll('#step-4 .mb-8 h3')[0];
-            if (performanceTitle && (performanceTitle.textContent.includes('超能力') || performanceTitle.textContent.includes('Superpower'))) {
+            const performanceTitle = document.querySelector('#step-4 .mb-8:nth-of-type(3) h3');
+            if (performanceTitle) {
                 performanceTitle.textContent = translations.performance_title[currentLanguage];
             }
 
-            const suitableJobsTitle = document.querySelectorAll('#step-4 .mb-8 h3')[1];
-            if (suitableJobsTitle && (suitableJobsTitle.textContent.includes('适合') || suitableJobsTitle.textContent.includes('Suitable'))) {
+            const suitableJobsTitle = document.querySelector('#step-4 .mb-8:nth-of-type(4) h3');
+            if (suitableJobsTitle) {
                 suitableJobsTitle.textContent = translations.suitable_jobs_title[currentLanguage];
             }
 
@@ -711,94 +712,8 @@
         // 问题数据
         const questions = [
             {
-                id: 1,
-                text: "早上9点，你刚到办公室，Boss突然发消息说明天就要一个新项目的点子，你会？",
-                options: [
-                    { id: 1, text: "立刻打开电脑，开始brainstorming各种可能性", value: "idea-harvester" },
-                    { id: 2, text: "先看看过去类似的项目，研究成功案例的细节", value: "detail-inspector" },
-                    { id: 3, text: "马上找同事讨论，集思广益", value: "mood-manager" },
-                    { id: 4, text: "先喝杯咖啡，冷静思考后再动手", value: "zen-master" }
-                ]
-            },
-            {
-                id: 2,
-                text: "10点开会时，Boss突然问你对某个问题的看法，你还没准备，你会？",
-                options: [
-                    { id: 1, text: "凭直觉给出几个点子，之后再完善", value: "idea-harvester" },
-                    { id: 2, text: "诚实地说需要更多时间研究细节", value: "detail-inspector" },
-                    { id: 3, text: "迅速整理思路，给出一个结构化的回答", value: "zero-second-savior" },
-                    { id: 4, text: "微笑着说：'我需要考虑一下，晚点给您答复'", value: "zen-master" }
-                ]
-            },
-            {
-                id: 3,
-                text: "午休时，同事抱怨工作压力大，你会？",
-                options: [
-                    { id: 1, text: "建议他换个角度看问题，给他一些新的思路", value: "idea-harvester" },
-                    { id: 2, text: "帮他分析问题的细节，找出解决方案", value: "detail-inspector" },
-                    { id: 3, text: "听他倾诉，然后带他去喝杯好料的", value: "mood-manager" },
-                    { id: 4, text: "告诉他'别担心，船到桥头自然直'", value: "zen-master" }
-                ]
-            },
-            {
-                id: 4,
-                text: "下午2点，客户突然打电话来说方案有问题，需要立刻修改，你会？",
-                options: [
-                    { id: 1, text: "快速思考几个替代方案，让客户选择", value: "idea-harvester" },
-                    { id: 2, text: "仔细询问问题所在，逐一记录下来", value: "detail-inspector" },
-                    { id: 3, text: "安抚客户情绪，承诺会尽快搞定", value: "zero-second-savior" },
-                    { id: 4, text: "保持冷静，按部就班地处理", value: "zen-master" }
-                ]
-            },
-            {
-                id: 5,
-                text: "下午3点，你发现团队成员之间有误会，影响了工作进度，你会？",
-                options: [
-                    { id: 1, text: "提出一个新的工作方式，转移大家的注意力", value: "idea-harvester" },
-                    { id: 2, text: "找出误会的根源，逐一解决问题", value: "detail-inspector" },
-                    { id: 3, text: "组织一个小型会议，让大家坦诚沟通", value: "mood-manager" },
-                    { id: 4, text: "相信他们自己能解决，不插手", value: "zen-master" }
-                ]
-            },
-            {
-                id: 6,
-                text: "下午4点，你正在赶一个deadline，但电脑突然死机，你会？",
-                options: [
-                    { id: 1, text: "尝试用手机或平板继续工作", value: "idea-harvester" },
-                    { id: 2, text: "检查电脑的每个细节，尝试修复", value: "detail-inspector" },
-                    { id: 3, text: "立刻找IT部门帮忙，同时准备Plan B", value: "zero-second-savior" },
-                    { id: 4, text: "深呼吸，先处理其他可以离线完成的工作", value: "zen-master" }
-                ]
-            },
-            {
-                id: 7,
-                text: "下班前，Boss突然分配了一个新任务，要求明天完成，你会？",
-                options: [
-                    { id: 1, text: "先构思一个大致框架，明天再细化", value: "idea-harvester" },
-                    { id: 2, text: "今天加班，确保每个细节都处理好", value: "detail-inspector" },
-                    { id: 3, text: "快速规划时间，确保按时完成", value: "zero-second-savior" },
-                    { id: 4, text: "接受任务，但按自己的节奏来，明天再说", value: "zen-master" }
-                ]
-            },
-            {
-                id: 8,
-                text: "周末同事约你一起做team building，你会？",
-                options: [
-                    { id: 1, text: "提议一个创新的活动，比如密室逃脱", value: "idea-harvester" },
-                    { id: 2, text: "主动负责策划细节，确保活动顺利", value: "detail-inspector" },
-                    { id: 3, text: "积极参与，带动大家的气氛", value: "mood-manager" },
-                    { id: 4, text: "随和参加，但不太想主动组织", value: "zen-master" }
-                ]
-            },
-            {
-                id: 9,
-                text: "工作中遇到困难时，你通常会？",
-                options: [
-                    { id: 1, text: "尝试从不同角度思考，寻找创新解决方案", value: "idea-harvester" },
-                    { id: 2, text: "仔细分析问题，找出每个环节的问题", value: "detail-inspector" },
-                    { id: 3, text: "立刻行动，尝试各种方法解决", value: "zero-second-savior" },
-                    { id: 4, text: "保持冷静，等待最佳时机再行动", value: "zen-master" }
-                ]
+               
+                
             }
         ];
 
@@ -1248,35 +1163,41 @@
 
         dataForm.addEventListener('submit', (e) => {
             e.preventDefault();
-            const name = document.getElementById('name').value;
-            const email = document.getElementById('email').value;
-            const phone = document.getElementById('phone').value;
-            const industry = document.getElementById('industry').value;
-            
-            // 保存用户数据
-            const userData = {
-                name,
-                email,
-                phone,
-                industry,
-                gender
-            };
-            
-            // 显示提交成功提示
+            const formData = new FormData(dataForm);
+            const name = formData.get('name');
             const submitBtn = document.getElementById('submit-data-btn');
             const originalText = submitBtn.innerHTML;
             submitBtn.disabled = true;
             submitBtn.innerHTML = `<i class="fa fa-spinner fa-spin mr-2"></i> ${translations.submitting[currentLanguage]}`;
-            
-            // 模拟API请求延迟
-            setTimeout(() => {
-                // 计算结果
+
+            fetch("/", {
+                method: "POST",
+                headers: { "Content-Type": "application/x-www-form-urlencoded" },
+                body: new URLSearchParams(formData).toString(),
+            })
+            .then(() => {
+                const userData = {
+                    name: formData.get('name'),
+                    email: formData.get('email'),
+                    phone: formData.get('phone'),
+                    industry: formData.get('industry'),
+                    gender: gender
+                };
                 showResult(userData);
-            }, 2000);
+            })
+            .catch((error) => {
+                console.error('Form submission error:', error);
+                alert('Error submitting form. Please check the console for details.');
+                submitBtn.disabled = false;
+                submitBtn.innerHTML = originalText;
+            });
         });
 
         // Step 4: 最终结果页
         function showResult(userData) {
+            console.log("index.html: showResult function entered.");
+            console.log("index.html: showResult - currentLanguage:", currentLanguage);
+
             step3.classList.add('hidden');
             step4.classList.remove('hidden');
 
@@ -1325,11 +1246,29 @@
             `;
 
             // Update section titles
-            document.querySelector('.bg-green-50 h3').textContent = translations.catchphrase_title[currentLanguage];
-            document.querySelector('.bg-yellow-50 h3').textContent = translations.challenge_title[currentLanguage];
-            document.querySelector('#step-4 .mb-8:nth-of-type(3) h3').textContent = translations.performance_title[currentLanguage];
-            document.querySelector('#step-4 .mb-8:nth-of-type(4) h3').textContent = translations.suitable_jobs_title[currentLanguage];
-            document.querySelector('.bg-blue-50 h3').textContent = translations.partner_title[currentLanguage];
+            const catchphraseTitleEl = document.querySelector('.bg-green-50 h3');
+            console.log("catchphraseTitleEl before update:", catchphraseTitleEl ? catchphraseTitleEl.textContent : "Not found");
+            if (catchphraseTitleEl) {
+                catchphraseTitleEl.textContent = translations.catchphrase_title[currentLanguage];
+                console.log("catchphraseTitleEl after update:", catchphraseTitleEl.textContent);
+            }
+
+            const challengeTitleEl = document.querySelector('.bg-yellow-50 h3');
+            if (challengeTitleEl) challengeTitleEl.textContent = translations.challenge_title[currentLanguage];
+
+            const performanceTitleEl = document.querySelector('#step-4 .mb-8:nth-of-type(3) h3');
+            console.log("performanceTitleEl before update:", performanceTitleEl ? performanceTitleEl.textContent : "Not found");
+            if (performanceTitleEl) {
+                performanceTitleEl.textContent = translations.performance_title[currentLanguage];
+                console.log("performanceTitleEl after update:", performanceTitleEl.textContent);
+            }
+
+            const suitableJobsTitleEl = document.querySelector('#step-4 .mb-8:nth-of-type(4) h3');
+            console.log("suitableJobsTitleEl before update:", suitableJobsTitleEl ? suitableJobsTitleEl.textContent : "Not found");
+            if (suitableJobsTitleEl) {
+                suitableJobsTitleEl.textContent = translations.suitable_jobs_title[currentLanguage];
+                console.log("suitableJobsTitleEl after update:", suitableJobsTitleEl.textContent);
+            }
 
             // 职场口头禅
             catchphrase.textContent = superpowerData.catchphrase;
