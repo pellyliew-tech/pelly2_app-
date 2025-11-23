@@ -201,7 +201,11 @@ const bilingualData = {
                     "能从困境中找到积极的一面"
                 ],
                 challenge: "可能过于被动，缺乏主动性；在需要快速决策时可能犹豫不决。",
-                suitableJobs: ["心理咨询", "教师", "瑜伽教练", "人力资源", "行政主管"]
+                suitableJobs: ["心理咨询", "教师", "瑜伽教练", "人力资源", "行政主管"],
+                partner: {
+                    id: "idea-harvester",
+                    reason: "他们能帮你激发创意，带来新的活力和想法。"
+                }
             },
             {
                 id: "detail-inspector",
@@ -215,7 +219,11 @@ const bilingualData = {
                     "追求完美，不轻易放过任何细节"
                 ],
                 challenge: "可能过于纠结细节，影响整体进度；对自己和他人要求过高。",
-                suitableJobs: ["质量控制", "数据分析", "编辑校对", "项目管理", "财务审计"]
+                suitableJobs: ["质量控制", "数据分析", "编辑校对", "项目管理", "财务审计"],
+                partner: {
+                    id: "zero-second-savior",
+                    reason: "他们能帮你把握整体进度，在关键时刻做出决策。"
+                }
             },
             {
                 id: "mood-manager",
@@ -229,7 +237,11 @@ const bilingualData = {
                     "能创造轻松愉快的工作环境"
                 ],
                 challenge: "可能过于关注他人感受，忽略自己的需求；在需要强硬决策时可能不够果断。",
-                suitableJobs: ["团队领导", "人力资源", "培训师", "公关", "活动策划"]
+                suitableJobs: ["团队领导", "人力资源", "培训师", "公关", "活动策划"],
+                partner: {
+                    id: "detail-inspector",
+                    reason: "他们能帮你完善细节，确保团队的创意想法能够顺利执行。"
+                }
             },
             {
                 id: "idea-harvester",
@@ -243,7 +255,11 @@ const bilingualData = {
                     "在压力下依然能保持创造力"
                 ],
                 challenge: "有时想法太多，难以专注执行；细节处理可能不够完善。",
-                suitableJobs: ["创意总监", "产品经理", "市场营销", "广告策划", "创业家"]
+                suitableJobs: ["创意总监", "产品经理", "市场营销", "广告策划", "创业家"],
+                partner: {
+                    id: "detail-inspector",
+                    reason: "他们能帮你完善想法的细节，确保创意落地执行。"
+                }
             },
             {
                 id: "zero-second-savior",
@@ -257,7 +273,11 @@ const bilingualData = {
                     "能迅速调整计划应对变化"
                 ],
                 challenge: "可能过于冲动，没有充分考虑后果；长期处于高压状态容易 burnout。",
-                suitableJobs: ["危机管理", "应急响应", "销售经理", "公关专家", "企业家"]
+                suitableJobs: ["危机管理", "应急响应", "销售经理", "公关专家", "企业家"],
+                partner: {
+                    id: "zen-master",
+                    reason: "他们能帮你保持平衡，在忙碌中找到平静。"
+                }
             }
         ],
         en: [
@@ -273,7 +293,11 @@ const bilingualData = {
                     "Find positive aspects in difficult situations"
                 ],
                 challenge: "May be too passive and lack initiative; might hesitate when quick decisions are needed.",
-                suitableJobs: ["Counseling", "Teacher", "Yoga Instructor", "HR", "Admin Manager"]
+                suitableJobs: ["Counseling", "Teacher", "Yoga Instructor", "HR", "Admin Manager"],
+                partner: {
+                    id: "idea-harvester",
+                    reason: "They help spark your creativity and bring new energy and ideas."
+                }
             },
             {
                 id: "detail-inspector",
@@ -287,7 +311,11 @@ const bilingualData = {
                     "Pursue perfection, never overlook any detail"
                 ],
                 challenge: "May get too caught up in details, affecting overall progress; high standards for self and others.",
-                suitableJobs: ["Quality Control", "Data Analyst", "Editor", "Project Manager", "Auditor"]
+                suitableJobs: ["Quality Control", "Data Analyst", "Editor", "Project Manager", "Auditor"],
+                partner: {
+                    id: "zero-second-savior",
+                    reason: "They help you grasp the overall progress and make critical decisions at key moments."
+                }
             },
             {
                 id: "mood-manager",
@@ -301,7 +329,11 @@ const bilingualData = {
                     "Create a relaxed and pleasant work environment"
                 ],
                 challenge: "May focus too much on others' feelings, neglecting your own needs; might lack decisiveness when tough calls are needed.",
-                suitableJobs: ["Team Leader", "HR", "Trainer", "PR", "Event Planner"]
+                suitableJobs: ["Team Leader", "HR", "Trainer", "PR", "Event Planner"],
+                partner: {
+                    id: "detail-inspector",
+                    reason: "They help you refine details and ensure creative ideas can be executed smoothly."
+                }
             },
             {
                 id: "idea-harvester",
@@ -315,7 +347,11 @@ const bilingualData = {
                     "Maintain creativity even under pressure"
                 ],
                 challenge: "Sometimes too many ideas, hard to focus on execution; detail handling may be insufficient.",
-                suitableJobs: ["Creative Director", "Product Manager", "Marketing", "Ad Planner", "Entrepreneur"]
+                suitableJobs: ["Creative Director", "Product Manager", "Marketing", "Ad Planner", "Entrepreneur"],
+                partner: {
+                    id: "detail-inspector",
+                    reason: "They help refine your ideas' details and ensure creative concepts are executed properly."
+                }
             },
             {
                 id: "zero-second-savior",
@@ -329,7 +365,11 @@ const bilingualData = {
                     "Quickly adjust plans to handle changes"
                 ],
                 challenge: "May be too impulsive without fully considering consequences; prone to burnout from prolonged high pressure.",
-                suitableJobs: ["Crisis Management", "Emergency Response", "Sales Manager", "PR Expert", "Entrepreneur"]
+                suitableJobs: ["Crisis Management", "Emergency Response", "Sales Manager", "PR Expert", "Entrepreneur"],
+                partner: {
+                    id: "zen-master",
+                    reason: "They help you maintain balance and find peace in the busy moments."
+                }
             }
         ]
     }
