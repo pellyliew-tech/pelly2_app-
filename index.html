@@ -132,6 +132,7 @@
         }
     </style>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&amp;display=swap" rel="stylesheet">
+    <script src="translations-data.js"></script>
 </head>
 <body class="bg-gradient-to-br from-blue-50 via-green-50 to-yellow-50 min-h-screen font-sans">
     <!-- 背景装饰 -->
@@ -427,6 +428,7 @@
 
     <script>
         // Language support
+        // Language support
         let currentLanguage = 'zh';
 
         const translations = {
@@ -437,15 +439,15 @@
             female_btn: { zh: '打工女侠 (女)', en: 'Working Woman (Female)' },
             male_btn: { zh: '打工超人 (男)', en: 'Working Man (Male)' },
             superpowers_title: { zh: '5种职场超能力探索', en: '5 Workplace Superpowers to Explore' },
-            zen_master_name: { zh: '职场佛系王', en: 'Zen Master' },
+            zen_master_name: { zh: '职场佛系王', en: 'Chill Master' },
             zen_master_desc: { zh: '在高压环境中保持冷静，从容应对各种挑战', en: 'Stay calm under pressure and handle challenges with ease' },
             detail_inspector_name: { zh: '细节纠察队', en: 'Detail Inspector' },
             detail_inspector_desc: { zh: '发现别人忽略的细节，确保工作完美无瑕', en: 'Spot details others miss and ensure flawless work' },
-            mood_manager_name: { zh: '氛围管理师', en: 'Mood Manager' },
+            mood_manager_name: { zh: '氛围管理师', en: 'Energy Keeper' },
             mood_manager_desc: { zh: '营造良好工作氛围，促进团队合作', en: 'Create positive atmosphere and foster teamwork' },
-            idea_harvester_name: { zh: '点子收割机', en: 'Idea Harvester' },
+            idea_harvester_name: { zh: '点子收割机', en: 'Idea Hunter' },
             idea_harvester_desc: { zh: '拥有无穷无尽的创意，总能提出新想法', en: 'Generate endless creative ideas and innovations' },
-            zero_second_savior_name: { zh: '零秒救世主', en: 'Zero-Second Savior' },
+            zero_second_savior_name: { zh: '零秒救世主', en: 'Quick Fixer' },
             zero_second_savior_desc: { zh: '在紧急情况下迅速做出反应，解决问题', en: 'React quickly in emergencies and solve problems' },
             prev_button: { zh: '上一题', en: 'Previous' },
             next_button: { zh: '下一题', en: 'Next' },
@@ -476,6 +478,8 @@
             please_select_option: { zh: '请选择一个选项', en: 'Please select an option' },
             footer_text: { zh: '© 2025 Ricebowl 铁饭网 | 职场超能力测试 | Agensi Pekerjaan Ajobthing Sdn Bhd', en: '© 2025 Ricebowl | Workplace Superpower Test | Agensi Pekerjaan Ajobthing Sdn Bhd' }
         };
+
+
 
         function updateLanguage() {
             document.querySelector('h1').textContent = translations.page_title[currentLanguage];
@@ -1401,6 +1405,4 @@
     </script>
 
     <!-- Bilingual data -->
-    <script src="translations-data.js"></script>
-
 </body></html>

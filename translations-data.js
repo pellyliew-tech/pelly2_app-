@@ -263,7 +263,7 @@ const bilingualData = {
         en: [
             {
                 id: "zen-master",
-                name: "Zen Master",
+                name: "Chill Master",
                 description: "You possess a peaceful mindset, able to stay calm in busy work and handle various challenges with ease.",
                 catchphrase: "Take it easy, everything will be fine.",
                 performance: [
@@ -291,7 +291,7 @@ const bilingualData = {
             },
             {
                 id: "mood-manager",
-                name: "Mood Manager",
+                name: "Energy Keeper",
                 description: "You can create a positive work atmosphere, promote teamwork, and improve efficiency.",
                 catchphrase: "Let's go team!",
                 performance: [
@@ -305,7 +305,7 @@ const bilingualData = {
             },
             {
                 id: "idea-harvester",
-                name: "Idea Harvester",
+                name: "Idea Hunter",
                 description: "You have endless creativity, always coming up with brilliant ideas at key moments.",
                 catchphrase: "I have an idea for this!",
                 performance: [
@@ -319,7 +319,7 @@ const bilingualData = {
             },
             {
                 id: "zero-second-savior",
-                name: "Zero-Second Savior",
+                name: "Quick Fixer",
                 description: "You have exceptional adaptability, able to react quickly in emergencies and solve problems.",
                 catchphrase: "Don't worry, I got this!",
                 performance: [
