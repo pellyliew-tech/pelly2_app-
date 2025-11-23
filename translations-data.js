@@ -74,22 +74,22 @@ const bilingualData = {
             },
             {
                 id: 8,
-                text: "周末同事约你一起做team building，你会？",
+                text: "快下班时，同事提议一起去吃晚餐，你会？",
                 options: [
-                    { id: 1, text: "提议一个创新的活动，比如密室逃脱", value: "idea-harvester" },
-                    { id: 2, text: "主动负责策划细节，确保活动顺利", value: "detail-inspector" },
-                    { id: 3, text: "积极参与，带动大家的气氛", value: "mood-manager" },
-                    { id: 4, text: "随和参加，但不太想主动组织", value: "zen-master" }
+                    { id: 1, text: "马上提议去一家今天刚开幕的特别餐厅", value: "idea-harvester" },
+                    { id: 2, text: "询问地点、人数、预算后再决定要不要参加", value: "detail-inspector" },
+                    { id: 3, text: "爽快答应，希望能让大家今天的压力释怀", value: "mood-manager" },
+                    { id: 4, text: "礼貌婉拒，想用自己的方式放松一下", value: "zen-master" }
                 ]
             },
             {
                 id: 9,
-                text: "工作中遇到困难时，你通常会？",
+                text: "忙碌了一整天后，你终于到家，你会？",
                 options: [
-                    { id: 1, text: "尝试从不同角度思考，寻找创新解决方案", value: "idea-harvester" },
-                    { id: 2, text: "仔细分析问题，找出每个环节的问题", value: "detail-inspector" },
-                    { id: 3, text: "立刻行动，尝试各种方法解决", value: "zero-second-savior" },
-                    { id: 4, text: "保持冷静，等待最佳时机再行动", value: "zen-master" }
+                    { id: 1, text: "滑滑手机或看视频，结果看到新的点子忍不住开始计划", value: "idea-harvester" },
+                    { id: 2, text: "检查明天的行程、交通、会议时间，让一切安排明确", value: "detail-inspector" },
+                    { id: 3, text: "和家人／朋友聊天，把心情调整成轻松模式", value: "mood-manager" },
+                    { id: 4, text: "洗个澡、静静坐一会儿，让脑袋完全归零", value: "zen-master" }
                 ]
             }
         ],
@@ -166,22 +166,22 @@ const bilingualData = {
             },
             {
                 id: 8,
-                text: "A colleague invites you to join a team building activity this weekend. What do you do?",
+                text: "Near the end of the workday, a colleague suggests going out for dinner together. What do you do?",
                 options: [
-                    { id: 1, text: "Suggest an innovative activity like an escape room", value: "idea-harvester" },
-                    { id: 2, text: "Take initiative to plan the details and ensure smooth execution", value: "detail-inspector" },
-                    { id: 3, text: "Actively participate and boost everyone's energy", value: "mood-manager" },
-                    { id: 4, text: "Join casually but don't want to actively organize", value: "zen-master" }
+                    { id: 1, text: "Immediately suggest a newly opened special restaurant", value: "idea-harvester" },
+                    { id: 2, text: "Ask about the location, number of people, and budget before deciding whether to join", value: "detail-inspector" },
+                    { id: 3, text: "Readily agree, hoping to help everyone relieve today's stress", value: "mood-manager" },
+                    { id: 4, text: "Politely decline, wanting to relax in my own way", value: "zen-master" }
                 ]
             },
             {
                 id: 9,
-                text: "When facing difficulties at work, what do you usually do?",
+                text: "After a busy day, you finally get home. What do you do?",
                 options: [
-                    { id: 1, text: "Think from different angles to find innovative solutions", value: "idea-harvester" },
-                    { id: 2, text: "Carefully analyze the problem and identify issues in each step", value: "detail-inspector" },
-                    { id: 3, text: "Take immediate action and try various methods to solve it", value: "zero-second-savior" },
-                    { id: 4, text: "Stay calm and wait for the best moment to act", value: "zen-master" }
+                    { id: 1, text: "Scroll on my phone or watch videos, and end up planning new ideas that come to mind", value: "idea-harvester" },
+                    { id: 2, text: "Check tomorrow's schedule, transportation, and meeting times to make sure everything is clearly arranged", value: "detail-inspector" },
+                    { id: 3, text: "Chat with family/friends, adjusting my mood to a relaxed mode", value: "mood-manager" },
+                    { id: 4, text: "Take a shower, sit quietly for a while, letting my mind completely reset", value: "zen-master" }
                 ]
             }
         ]
