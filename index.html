@@ -132,8 +132,6 @@
         }
     </style>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&amp;display=swap" rel="stylesheet">
-    <!-- Bilingual data -->
-    <script src="/translations-data.js"></script>
 </head>
 <body class="bg-gradient-to-br from-blue-50 via-green-50 to-yellow-50 min-h-screen font-sans">
     <!-- 背景装饰 -->
@@ -171,7 +169,7 @@
         <!-- Logo和标题 -->
         <div class="text-center mb-8">
             <div class="mb-4">
-                <img src="/"ricebowl-logo.png" alt="公司Logo" class="h-24 mx-auto">
+                <img src="https://ricebowl-personality-test.netlify.app/ricebowl-logo.png" alt="公司Logo" class="h-24 mx-auto">
             </div>
             <h1 class="text-[clamp(1.5rem,3vw,2.5rem)] font-bold text-dark mb-2">职场超能力测试：</h1>
             <p class="text-[clamp(1rem,2vw,1.25rem)] text-gray-700 mb-2">想要知道你是零秒救世主还是职场佛系王吗？</p>
@@ -205,7 +203,7 @@
                     <!-- 职场佛系王 -->
                     <div class="bg-white/60 backdrop-blur-sm rounded-xl p-4 text-center border border-zen/20">
                         <div class="w-24 h-24 mx-auto mb-3 rounded-full overflow-hidden border-4 border-zen/20">
-                            <img src="/"chill-master.jpg" alt="职场佛系王" class="w-full h-full object-cover">
+                            <img src="https://ricebowl-personality-test.netlify.app/chill-master.jpg" alt="职场佛系王" class="w-full h-full object-cover">
                         </div>
                         <h4 class="font-bold text-zen">职场佛系王</h4>
                         <p class="text-xs text-gray-600 mt-2">在高压环境中保持冷静，从容应对各种挑战</p>
@@ -214,7 +212,7 @@
                     <!-- 细节纠察队 -->
                     <div class="bg-white/60 backdrop-blur-sm rounded-xl p-4 text-center border border-detail/20">
                         <div class="w-24 h-24 mx-auto mb-3 rounded-full overflow-hidden border-4 border-detail/20">
-                            <img src="/"detail-squad.jpg" alt="细节纠察队" class="w-full h-full object-cover">
+                            <img src="https://ricebowl-personality-test.netlify.app/detail-squad.jpg" alt="细节纠察队" class="w-full h-full object-cover">
                         </div>
                         <h4 class="font-bold text-detail">细节纠察队</h4>
                         <p class="text-xs text-gray-600 mt-2">发现别人忽略的细节，确保工作完美无瑕</p>
@@ -223,7 +221,7 @@
                     <!-- 氛围管理师 -->
                     <div class="bg-white/60 backdrop-blur-sm rounded-xl p-4 text-center border border-mood/20">
                         <div class="w-24 h-24 mx-auto mb-3 rounded-full overflow-hidden border-4 border-mood/20">
-                            <img src="/"energy-keeper.jpg" alt="氛围管理师" class="w-full h-full object-cover">
+                            <img src="https://ricebowl-personality-test.netlify.app/energy-keeper.jpg" alt="氛围管理师" class="w-full h-full object-cover">
                         </div>
                         <h4 class="font-bold text-mood">氛围管理师</h4>
                         <p class="text-xs text-gray-600 mt-2">营造良好工作氛围，促进团队合作</p>
@@ -232,7 +230,7 @@
                     <!-- 点子收割机 -->
                     <div class="bg-white/60 backdrop-blur-sm rounded-xl p-4 text-center border border-idea/20">
                         <div class="w-24 h-24 mx-auto mb-3 rounded-full overflow-hidden border-4 border-idea/20">
-                            <img src="/"idea-hunter.jpg" alt="点子收割机" class="w-full h-full object-cover">
+                            <img src="https://ricebowl-personality-test.netlify.app/idea-hunter.jpg" alt="点子收割机" class="w-full h-full object-cover">
                         </div>
                         <h4 class="font-bold text-idea">点子收割机</h4>
                         <p class="text-xs text-gray-600 mt-2">拥有无穷无尽的创意，总能提出新想法</p>
@@ -241,7 +239,7 @@
                     <!-- 零秒救世主 -->
                     <div class="bg-white/60 backdrop-blur-sm rounded-xl p-4 text-center border border-zero/20">
                         <div class="w-24 h-24 mx-auto mb-3 rounded-full overflow-hidden border-4 border-zero/20">
-                            <img src="/"quick-fixer.jpg" alt="零秒救世主" class="w-full h-full object-cover">
+                            <img src="https://ricebowl-personality-test.netlify.app/quick-fixer.jpg" alt="零秒救世主" class="w-full h-full object-cover">
                         </div>
                         <h4 class="font-bold text-zero">零秒救世主</h4>
                         <p class="text-xs text-gray-600 mt-2">在紧急情况下迅速做出反应，解决问题</p>
@@ -293,13 +291,7 @@
                     只差最后一步！填写资料，获取你的专属报告！
                 </h2>
                 
-               <form id="data-form" name="contact" method="POST" data-netlify="true" action="/personality-test/" class="space-y-4">
-                    <div class="hidden">
-                      <label>
-                        Don’t fill this out if you’re human: <input name="bot-field" />
-                      </label>
-                    </div>
-                    <input type="hidden" name="form-name" value="contact" />
+               <form id="data-form" name="contact" method="POST" data-netlify="true" class="space-y-4">
                     <div>
                         <label for="name" class="block text-gray-700 mb-2">姓名</label>
                         <input type="text" id="name" name="name" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary" placeholder="例如：小明" required="">
@@ -376,21 +368,16 @@
                 </div>
                 
                 <div class="mb-8">
-                    <h3 id="performance-title" class="font-bold text-dark mb-3">超能力表现</h3>
+                    <h3 class="font-bold text-dark mb-3">超能力表现</h3>
                     <div id="performance" class="space-y-3">
                         <!-- 超能力表现将通过JS动态添加 -->
                     </div>
                 </div>
                 
                 <div class="mb-8">
-                    <h3 id="suitable-jobs-title" class="font-bold text-dark mb-3">适合的工作类型</h3>
+                    <h3 class="font-bold text-dark mb-3">适合的工作类型</h3>
                     <div id="suitable-jobs" class="flex flex-wrap gap-2">
                         <!-- 适合的工作类型将通过JS动态添加 -->
-                    </div>
-                    <div class="mt-4">
-                        <a href="https://www.ricebowl.my/jobsearch?entry=title&utm_source=website&utm_medium=suitable_job&utm_campaign=rb_personality" target="_blank" class="btn-primary inline-flex items-center text-sm px-4 py-2">
-                            <i class="fa fa-search mr-2"></i><span id="find-jobs-btn-text">Find Suitable Jobs</span>
-                        </a>
                     </div>
                 </div>
                 
@@ -439,26 +426,25 @@
 
     <script>
         // Language support
-        // Language support
         let currentLanguage = 'zh';
 
         const translations = {
             page_title: { zh: '职场超能力测试：', en: 'Workplace Superpower Test:' },
-            page_subtitle: { zh: '想要知道你是职场佛系王、点子收割机还是零秒救世主吗？', en: 'Discover your inner Chill Master, Idea Hunter, or Quick Fixer!' },
+            page_subtitle: { zh: '想要知道你是零秒救世主还是职场佛系王吗？', en: 'Discover if you\'re a Zero-Second Savior or a Zen Master!' },
             page_description: { zh: '别再只测 MBTI 了！3 分钟测出你的职场底层天赋。', en: 'Move beyond MBTI! Discover your workplace talents in 3 minutes.' },
             step1_title: { zh: '在开始探索你的职场超能力前，请先告诉我你是...', en: 'Before exploring your workplace superpower, tell us you are...' },
             female_btn: { zh: '打工女侠 (女)', en: 'Working Woman (Female)' },
             male_btn: { zh: '打工超人 (男)', en: 'Working Man (Male)' },
             superpowers_title: { zh: '5种职场超能力探索', en: '5 Workplace Superpowers to Explore' },
-            zen_master_name: { zh: '职场佛系王', en: 'Chill Master' },
+            zen_master_name: { zh: '职场佛系王', en: 'Zen Master' },
             zen_master_desc: { zh: '在高压环境中保持冷静，从容应对各种挑战', en: 'Stay calm under pressure and handle challenges with ease' },
             detail_inspector_name: { zh: '细节纠察队', en: 'Detail Inspector' },
             detail_inspector_desc: { zh: '发现别人忽略的细节，确保工作完美无瑕', en: 'Spot details others miss and ensure flawless work' },
-            mood_manager_name: { zh: '氛围管理师', en: 'Energy Keeper' },
+            mood_manager_name: { zh: '氛围管理师', en: 'Mood Manager' },
             mood_manager_desc: { zh: '营造良好工作氛围，促进团队合作', en: 'Create positive atmosphere and foster teamwork' },
-            idea_harvester_name: { zh: '点子收割机', en: 'Idea Hunter' },
+            idea_harvester_name: { zh: '点子收割机', en: 'Idea Harvester' },
             idea_harvester_desc: { zh: '拥有无穷无尽的创意，总能提出新想法', en: 'Generate endless creative ideas and innovations' },
-            zero_second_savior_name: { zh: '零秒救世主', en: 'Quick Fixer' },
+            zero_second_savior_name: { zh: '零秒救世主', en: 'Zero-Second Savior' },
             zero_second_savior_desc: { zh: '在紧急情况下迅速做出反应，解决问题', en: 'React quickly in emergencies and solve problems' },
             prev_button: { zh: '上一题', en: 'Previous' },
             next_button: { zh: '下一题', en: 'Next' },
@@ -486,12 +472,9 @@
             resume_cta_title: { zh: '上传你的简历', en: 'Upload Your Resume' },
             resume_cta_button: { zh: '上传你的简历', en: 'Upload Your Resume' },
             resume_cta_note: { zh: '点击按钮，找到最匹配的工作！', en: 'Click the button to find the perfect job match!' },
-            find_jobs_button: { zh: '寻找合适工作', en: 'Find Suitable Jobs' },
             please_select_option: { zh: '请选择一个选项', en: 'Please select an option' },
             footer_text: { zh: '© 2025 Ricebowl 铁饭网 | 职场超能力测试 | Agensi Pekerjaan Ajobthing Sdn Bhd', en: '© 2025 Ricebowl | Workplace Superpower Test | Agensi Pekerjaan Ajobthing Sdn Bhd' }
         };
-
-
 
         function updateLanguage() {
             document.querySelector('h1').textContent = translations.page_title[currentLanguage];
@@ -597,21 +580,18 @@
             const challengeTitle = document.querySelector('.bg-yellow-50 h3');
             if (challengeTitle) challengeTitle.textContent = translations.challenge_title[currentLanguage];
 
-            const performanceTitle = document.getElementById('performance-title');
-            if (performanceTitle) {
+            const performanceTitle = document.querySelectorAll('#step-4 .mb-8 h3')[0];
+            if (performanceTitle && (performanceTitle.textContent.includes('超能力') || performanceTitle.textContent.includes('Superpower'))) {
                 performanceTitle.textContent = translations.performance_title[currentLanguage];
             }
 
-            const suitableJobsTitle = document.getElementById('suitable-jobs-title');
-            if (suitableJobsTitle) {
+            const suitableJobsTitle = document.querySelectorAll('#step-4 .mb-8 h3')[1];
+            if (suitableJobsTitle && (suitableJobsTitle.textContent.includes('适合') || suitableJobsTitle.textContent.includes('Suitable'))) {
                 suitableJobsTitle.textContent = translations.suitable_jobs_title[currentLanguage];
             }
 
             const partnerTitle = document.querySelector('.bg-blue-50 h3');
             if (partnerTitle) partnerTitle.textContent = translations.partner_title[currentLanguage];
-
-            const findJobsBtnText = document.getElementById('find-jobs-btn-text');
-            if (findJobsBtnText) findJobsBtnText.textContent = translations.find_jobs_button[currentLanguage];
 
             const restartBtn = document.getElementById('restart-btn');
             if (restartBtn) {
@@ -731,10 +711,314 @@
         // 问题数据
         const questions = [
             {
-               
-                
+                id: 1,
+                text: "早上9点，你刚到办公室，Boss突然发消息说明天就要一个新项目的点子，你会？",
+                options: [
+                    { id: 1, text: "立刻打开电脑，开始brainstorming各种可能性", value: "idea-harvester" },
+                    { id: 2, text: "先看看过去类似的项目，研究成功案例的细节", value: "detail-inspector" },
+                    { id: 3, text: "马上找同事讨论，集思广益", value: "mood-manager" },
+                    { id: 4, text: "先喝杯咖啡，冷静思考后再动手", value: "zen-master" }
+                ]
+            },
+            {
+                id: 2,
+                text: "10点开会时，Boss突然问你对某个问题的看法，你还没准备，你会？",
+                options: [
+                    { id: 1, text: "凭直觉给出几个点子，之后再完善", value: "idea-harvester" },
+                    { id: 2, text: "诚实地说需要更多时间研究细节", value: "detail-inspector" },
+                    { id: 3, text: "迅速整理思路，给出一个结构化的回答", value: "zero-second-savior" },
+                    { id: 4, text: "微笑着说：'我需要考虑一下，晚点给您答复'", value: "zen-master" }
+                ]
+            },
+            {
+                id: 3,
+                text: "午休时，同事抱怨工作压力大，你会？",
+                options: [
+                    { id: 1, text: "建议他换个角度看问题，给他一些新的思路", value: "idea-harvester" },
+                    { id: 2, text: "帮他分析问题的细节，找出解决方案", value: "detail-inspector" },
+                    { id: 3, text: "听他倾诉，然后带他去喝杯好料的", value: "mood-manager" },
+                    { id: 4, text: "告诉他'别担心，船到桥头自然直'", value: "zen-master" }
+                ]
+            },
+            {
+                id: 4,
+                text: "下午2点，客户突然打电话来说方案有问题，需要立刻修改，你会？",
+                options: [
+                    { id: 1, text: "快速思考几个替代方案，让客户选择", value: "idea-harvester" },
+                    { id: 2, text: "仔细询问问题所在，逐一记录下来", value: "detail-inspector" },
+                    { id: 3, text: "安抚客户情绪，承诺会尽快搞定", value: "zero-second-savior" },
+                    { id: 4, text: "保持冷静，按部就班地处理", value: "zen-master" }
+                ]
+            },
+            {
+                id: 5,
+                text: "下午3点，你发现团队成员之间有误会，影响了工作进度，你会？",
+                options: [
+                    { id: 1, text: "提出一个新的工作方式，转移大家的注意力", value: "idea-harvester" },
+                    { id: 2, text: "找出误会的根源，逐一解决问题", value: "detail-inspector" },
+                    { id: 3, text: "组织一个小型会议，让大家坦诚沟通", value: "mood-manager" },
+                    { id: 4, text: "相信他们自己能解决，不插手", value: "zen-master" }
+                ]
+            },
+            {
+                id: 6,
+                text: "下午4点，你正在赶一个deadline，但电脑突然死机，你会？",
+                options: [
+                    { id: 1, text: "尝试用手机或平板继续工作", value: "idea-harvester" },
+                    { id: 2, text: "检查电脑的每个细节，尝试修复", value: "detail-inspector" },
+                    { id: 3, text: "立刻找IT部门帮忙，同时准备Plan B", value: "zero-second-savior" },
+                    { id: 4, text: "深呼吸，先处理其他可以离线完成的工作", value: "zen-master" }
+                ]
+            },
+            {
+                id: 7,
+                text: "下班前，Boss突然分配了一个新任务，要求明天完成，你会？",
+                options: [
+                    { id: 1, text: "先构思一个大致框架，明天再细化", value: "idea-harvester" },
+                    { id: 2, text: "今天加班，确保每个细节都处理好", value: "detail-inspector" },
+                    { id: 3, text: "快速规划时间，确保按时完成", value: "zero-second-savior" },
+                    { id: 4, text: "接受任务，但按自己的节奏来，明天再说", value: "zen-master" }
+                ]
+            },
+            {
+                id: 8,
+                text: "周末同事约你一起做team building，你会？",
+                options: [
+                    { id: 1, text: "提议一个创新的活动，比如密室逃脱", value: "idea-harvester" },
+                    { id: 2, text: "主动负责策划细节，确保活动顺利", value: "detail-inspector" },
+                    { id: 3, text: "积极参与，带动大家的气氛", value: "mood-manager" },
+                    { id: 4, text: "随和参加，但不太想主动组织", value: "zen-master" }
+                ]
+            },
+            {
+                id: 9,
+                text: "工作中遇到困难时，你通常会？",
+                options: [
+                    { id: 1, text: "尝试从不同角度思考，寻找创新解决方案", value: "idea-harvester" },
+                    { id: 2, text: "仔细分析问题，找出每个环节的问题", value: "detail-inspector" },
+                    { id: 3, text: "立刻行动，尝试各种方法解决", value: "zero-second-savior" },
+                    { id: 4, text: "保持冷静，等待最佳时机再行动", value: "zen-master" }
+                ]
             }
         ];
+
+        // 超能力数据 - Bilingual
+        const superpowersData = {
+            zh: [
+                {
+                    id: "zen-master",
+                    name: "职场佛系王",
+                    icon: "https://ricebowl-personality-test.netlify.app/chill-master.jpg",
+                    color: "zen",
+                    description: "你拥有平和的心态，能在繁忙的工作中保持冷静，从容应对各种挑战。",
+                    catchphrase: "慢慢来，一切都会好的。",
+                    performance: [
+                        "能在高压环境中保持冷静",
+                        "擅长管理自己的情绪",
+                        "有良好的工作生活平衡",
+                        "能从困境中找到积极的一面"
+                    ],
+                    challenge: "可能过于被动，缺乏主动性；在需要快速决策时可能犹豫不决。",
+                    suitableJobs: ["心理咨询", "教师", "瑜伽教练", "人力资源", "行政主管"],
+                    partner: {
+                        id: "idea-harvester",
+                        name: "点子收割机",
+                        reason: "他们能帮你激发创意，带来新的活力和想法。"
+                    }
+                },
+                {
+                    id: "detail-inspector",
+                    name: "细节纠察队",
+                    icon: "https://ricebowl-personality-test.netlify.app/detail-squad.jpg",
+                    color: "detail",
+                    description: "你拥有敏锐的洞察力，能发现别人忽略的细节，确保工作完美无瑕。",
+                    catchphrase: "等一下，这里有个小问题...",
+                    performance: [
+                        "能快速发现工作中的错误和漏洞",
+                        "擅长制定详细的计划和流程",
+                        "对数据和信息有超强的记忆力",
+                        "追求完美，不轻易放过任何细节"
+                    ],
+                    challenge: "可能过于纠结细节，影响整体进度；对自己和他人要求过高。",
+                    suitableJobs: ["质量控制", "数据分析", "编辑校对", "项目管理", "财务审计"],
+                    partner: {
+                        id: "zero-second-savior",
+                        name: "零秒救世主",
+                        reason: "他们能帮你把握整体进度，在关键时刻做出决策。"
+                    }
+                },
+                {
+                    id: "mood-manager",
+                    name: "氛围管理师",
+                    icon: "https://ricebowl-personality-test.netlify.app/energy-keeper.jpg",
+                    color: "mood",
+                    description: "你拥有营造良好工作氛围的能力，能促进团队合作，提高工作效率。",
+                    catchphrase: "大家一起加油！",
+                    performance: [
+                        "擅长调解团队矛盾",
+                        "能激发团队成员的积极性",
+                        "有良好的沟通和倾听能力",
+                        "能创造轻松愉快的工作环境"
+                    ],
+                    challenge: "可能过于关注他人感受，忽略自己的需求；在需要强硬决策时可能不够果断。",
+                    suitableJobs: ["团队领导", "人力资源", "培训师", "公关", "活动策划"],
+                    partner: {
+                        id: "detail-inspector",
+                        name: "细节纠察队",
+                        reason: "他们能帮你完善细节，确保团队的创意想法能够顺利执行。"
+                    }
+                },
+                {
+                    id: "idea-harvester",
+                    name: "点子收割机",
+                    icon: "https://ricebowl-personality-test.netlify.app/idea-hunter.jpg",
+                    color: "idea",
+                    description: "你拥有无穷无尽的创意，总能在关键时刻提出令人眼前一亮的点子。",
+                    catchphrase: "这个问题，我有个idea！",
+                    performance: [
+                        "头脑风暴时总能提出最多创意",
+                        "擅长从不同角度思考问题",
+                        "能够快速将想法转化为行动方案",
+                        "在压力下依然能保持创造力"
+                    ],
+                    challenge: "有时想法太多，难以专注执行；细节处理可能不够完善。",
+                    suitableJobs: ["创意总监", "产品经理", "市场营销", "广告策划", "创业家"],
+                    partner: {
+                        id: "detail-inspector",
+                        name: "细节纠察队",
+                        reason: "他们能帮你完善想法的细节，确保创意落地执行。"
+                    }
+                },
+                {
+                    id: "zero-second-savior",
+                    name: "零秒救世主",
+                    icon: "https://ricebowl-personality-test.netlify.app/quick-fixer.jpg",
+                    color: "zero",
+                    description: "你拥有超强的应变能力，能在紧急情况下迅速做出反应，解决问题。",
+                    catchphrase: "别担心，我搞定！",
+                    performance: [
+                        "在压力下依然能保持冷静",
+                        "擅长快速做出决策",
+                        "有多种解决方案的储备",
+                        "能迅速调整计划应对变化"
+                    ],
+                    challenge: "可能过于冲动，没有充分考虑后果；长期处于高压状态容易 burnout。",
+                    suitableJobs: ["危机管理", "应急响应", "销售经理", "公关专家", "企业家"],
+                    partner: {
+                        id: "zen-master",
+                        name: "职场佛系王",
+                        reason: "他们能帮你保持平衡，在忙碌中找到平静。"
+                    }
+                }
+            ],
+            en: [
+                {
+                    id: "zen-master",
+                    name: "Zen Master",
+                    icon: "https://ricebowl-personality-test.netlify.app/chill-master.jpg",
+                    color: "zen",
+                    description: "You possess a peaceful mindset, able to stay calm in a busy work environment and handle various challenges with composure.",
+                    catchphrase: "Take it slow, everything will be fine.",
+                    performance: [
+                        "Stay calm under high-pressure situations",
+                        "Excel at managing your emotions",
+                        "Maintain a good work-life balance",
+                        "Find the positive side in difficult situations"
+                    ],
+                    challenge: "May be too passive and lack initiative; might hesitate when quick decisions are needed.",
+                    suitableJobs: ["Counseling", "Teaching", "Yoga Instructor", "Human Resources", "Administration"],
+                    partner: {
+                        id: "idea-harvester",
+                        name: "Idea Harvester",
+                        reason: "They help spark your creativity and bring new energy and ideas."
+                    }
+                },
+                {
+                    id: "detail-inspector",
+                    name: "Detail Inspector",
+                    icon: "https://ricebowl-personality-test.netlify.app/detail-squad.jpg",
+                    color: "detail",
+                    description: "You have keen insight and can spot details others overlook, ensuring work is flawless.",
+                    catchphrase: "Wait a minute, there's a small issue here...",
+                    performance: [
+                        "Quickly identify errors and gaps in work",
+                        "Excel at creating detailed plans and processes",
+                        "Have exceptional memory for data and information",
+                        "Pursue perfection and don't easily overlook any details"
+                    ],
+                    challenge: "May get too caught up in details, affecting overall progress; set high standards for yourself and others.",
+                    suitableJobs: ["Quality Control", "Data Analysis", "Editing & Proofreading", "Project Management", "Financial Audit"],
+                    partner: {
+                        id: "zero-second-savior",
+                        name: "Zero-Second Savior",
+                        reason: "They help you grasp the overall progress and make critical decisions at key moments."
+                    }
+                },
+                {
+                    id: "mood-manager",
+                    name: "Mood Manager",
+                    icon: "https://ricebowl-personality-test.netlify.app/energy-keeper.jpg",
+                    color: "mood",
+                    description: "You have the ability to create a positive work atmosphere, promoting team collaboration and improving work efficiency.",
+                    catchphrase: "Let's all work together!",
+                    performance: [
+                        "Excel at mediating team conflicts",
+                        "Can motivate team members' enthusiasm",
+                        "Have excellent communication and listening skills",
+                        "Can create a relaxed and pleasant work environment"
+                    ],
+                    challenge: "May focus too much on others' feelings and neglect your own needs; might not be decisive enough when tough decisions are required.",
+                    suitableJobs: ["Team Leadership", "Human Resources", "Training", "Public Relations", "Event Planning"],
+                    partner: {
+                        id: "detail-inspector",
+                        name: "Detail Inspector",
+                        reason: "They help you refine details and ensure creative ideas can be executed smoothly."
+                    }
+                },
+                {
+                    id: "idea-harvester",
+                    name: "Idea Harvester",
+                    icon: "https://ricebowl-personality-test.netlify.app/idea-hunter.jpg",
+                    color: "idea",
+                    description: "You have endless creativity and can always come up with brilliant ideas at critical moments.",
+                    catchphrase: "For this problem, I have an idea!",
+                    performance: [
+                        "Always provide the most ideas during brainstorming",
+                        "Excel at thinking about problems from different angles",
+                        "Can quickly turn ideas into action plans",
+                        "Maintain creativity even under pressure"
+                    ],
+                    challenge: "Sometimes too many ideas make it hard to focus on execution; detail handling may not be perfect.",
+                    suitableJobs: ["Creative Director", "Product Manager", "Marketing", "Advertising", "Entrepreneur"],
+                    partner: {
+                        id: "detail-inspector",
+                        name: "Detail Inspector",
+                        reason: "They help refine your ideas' details and ensure creative concepts are executed properly."
+                    }
+                },
+                {
+                    id: "zero-second-savior",
+                    name: "Zero-Second Savior",
+                    icon: "https://ricebowl-personality-test.netlify.app/quick-fixer.jpg",
+                    color: "zero",
+                    description: "You have exceptional adaptability and can quickly respond to solve problems in emergency situations.",
+                    catchphrase: "Don't worry, I've got this!",
+                    performance: [
+                        "Stay calm under pressure",
+                        "Excel at making quick decisions",
+                        "Have multiple solution alternatives ready",
+                        "Can rapidly adjust plans to respond to changes"
+                    ],
+                    challenge: "May be too impulsive without fully considering consequences; long-term high-stress situations can lead to burnout.",
+                    suitableJobs: ["Crisis Management", "Emergency Response", "Sales Manager", "PR Expert", "Entrepreneur"],
+                    partner: {
+                        id: "zen-master",
+                        name: "Zen Master",
+                        reason: "They help you maintain balance and find peace in the busy moments."
+                    }
+                }
+            ]
+        };
 
         // 行业选项 - Bilingual
         const industryOptions = {
@@ -964,41 +1248,35 @@
 
         dataForm.addEventListener('submit', (e) => {
             e.preventDefault();
-            const formData = new FormData(dataForm);
-            const name = formData.get('name');
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const phone = document.getElementById('phone').value;
+            const industry = document.getElementById('industry').value;
+            
+            // 保存用户数据
+            const userData = {
+                name,
+                email,
+                phone,
+                industry,
+                gender
+            };
+            
+            // 显示提交成功提示
             const submitBtn = document.getElementById('submit-data-btn');
             const originalText = submitBtn.innerHTML;
             submitBtn.disabled = true;
             submitBtn.innerHTML = `<i class="fa fa-spinner fa-spin mr-2"></i> ${translations.submitting[currentLanguage]}`;
-
-            fetch("/", {
-                method: "POST",
-                headers: { "Content-Type": "application/x-www-form-urlencoded" },
-                body: new URLSearchParams(formData).toString(),
-            })
-            .then(() => {
-                const userData = {
-                    name: formData.get('name'),
-                    email: formData.get('email'),
-                    phone: formData.get('phone'),
-                    industry: formData.get('industry'),
-                    gender: gender
-                };
+            
+            // 模拟API请求延迟
+            setTimeout(() => {
+                // 计算结果
                 showResult(userData);
-            })
-            .catch((error) => {
-                console.error('Form submission error:', error);
-                alert('Error submitting form. Please check the console for details.');
-                submitBtn.disabled = false;
-                submitBtn.innerHTML = originalText;
-            });
+            }, 2000);
         });
 
         // Step 4: 最终结果页
         function showResult(userData) {
-            console.log("index.html: showResult function entered.");
-            console.log("index.html: showResult - currentLanguage:", currentLanguage);
-
             step3.classList.add('hidden');
             step4.classList.remove('hidden');
 
@@ -1020,7 +1298,7 @@
             }
 
             // 获取超能力数据 - use bilingual data based on current language
-            const superpowers = bilingualData.superpowers[currentLanguage];
+            const superpowers = superpowersData[currentLanguage];
             const superpowerData = superpowers.find(s => s.id === resultSuperpowerId);
             const partnerData = superpowers.find(s => s.id === superpowerData.partner.id);
 
@@ -1047,25 +1325,11 @@
             `;
 
             // Update section titles
-            const catchphraseTitleEl = document.querySelector('.bg-green-50 h3');
-            console.log("catchphraseTitleEl before update:", catchphraseTitleEl ? catchphraseTitleEl.textContent : "Not found");
-            if (catchphraseTitleEl) {
-                catchphraseTitleEl.textContent = translations.catchphrase_title[currentLanguage];
-                console.log("catchphraseTitleEl after update:", catchphraseTitleEl.textContent);
-            }
-
-            const challengeTitleEl = document.querySelector('.bg-yellow-50 h3');
-            if (challengeTitleEl) challengeTitleEl.textContent = translations.challenge_title[currentLanguage];
-
-            const performanceTitleEl = document.getElementById('performance-title');
-            if (performanceTitleEl) {
-                performanceTitleEl.textContent = translations.performance_title[currentLanguage];
-            }
-
-            const suitableJobsTitleEl = document.getElementById('suitable-jobs-title');
-            if (suitableJobsTitleEl) {
-                suitableJobsTitleEl.textContent = translations.suitable_jobs_title[currentLanguage];
-            }
+            document.querySelector('.bg-green-50 h3').textContent = translations.catchphrase_title[currentLanguage];
+            document.querySelector('.bg-yellow-50 h3').textContent = translations.challenge_title[currentLanguage];
+            document.querySelector('#step-4 .mb-8:nth-of-type(3) h3').textContent = translations.performance_title[currentLanguage];
+            document.querySelector('#step-4 .mb-8:nth-of-type(4) h3').textContent = translations.suitable_jobs_title[currentLanguage];
+            document.querySelector('.bg-blue-50 h3').textContent = translations.partner_title[currentLanguage];
 
             // 职场口头禅
             catchphrase.textContent = superpowerData.catchphrase;
@@ -1200,5 +1464,8 @@
             return `${mins.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
         }
     </script>
+
+    <!-- Bilingual data -->
+    <script src="https://ricebowl-personality-test.netlify.app/translations-data.js"></script>
 
 </body></html>

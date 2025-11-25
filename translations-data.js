@@ -74,22 +74,22 @@ const bilingualData = {
             },
             {
                 id: 8,
-                text: "快下班时，同事提议一起去吃晚餐，你会？",
+                text: "周末同事约你一起做team building，你会？",
                 options: [
-                    { id: 1, text: "马上提议去一家今天刚开幕的特别餐厅", value: "idea-harvester" },
-                    { id: 2, text: "询问地点、人数、预算后再决定要不要参加", value: "detail-inspector" },
-                    { id: 3, text: "爽快答应，希望能让大家今天的压力释怀", value: "mood-manager" },
-                    { id: 4, text: "礼貌婉拒，想用自己的方式放松一下", value: "zen-master" }
+                    { id: 1, text: "提议一个创新的活动，比如密室逃脱", value: "idea-harvester" },
+                    { id: 2, text: "主动负责策划细节，确保活动顺利", value: "detail-inspector" },
+                    { id: 3, text: "积极参与，带动大家的气氛", value: "mood-manager" },
+                    { id: 4, text: "随和参加，但不太想主动组织", value: "zen-master" }
                 ]
             },
             {
                 id: 9,
-                text: "忙碌了一整天后，你终于到家，你会？",
+                text: "工作中遇到困难时，你通常会？",
                 options: [
-                    { id: 1, text: "滑滑手机或看视频，结果看到新的点子忍不住开始计划", value: "idea-harvester" },
-                    { id: 2, text: "检查明天的行程、交通、会议时间，让一切安排明确", value: "detail-inspector" },
-                    { id: 3, text: "和家人／朋友聊天，把心情调整成轻松模式", value: "mood-manager" },
-                    { id: 4, text: "洗个澡、静静坐一会儿，让脑袋完全归零", value: "zen-master" }
+                    { id: 1, text: "尝试从不同角度思考，寻找创新解决方案", value: "idea-harvester" },
+                    { id: 2, text: "仔细分析问题，找出每个环节的问题", value: "detail-inspector" },
+                    { id: 3, text: "立刻行动，尝试各种方法解决", value: "zero-second-savior" },
+                    { id: 4, text: "保持冷静，等待最佳时机再行动", value: "zen-master" }
                 ]
             }
         ],
@@ -166,22 +166,22 @@ const bilingualData = {
             },
             {
                 id: 8,
-                text: "Near the end of the workday, a colleague suggests going out for dinner together. What do you do?",
+                text: "A colleague invites you to join a team building activity this weekend. What do you do?",
                 options: [
-                    { id: 1, text: "Immediately suggest a newly opened special restaurant", value: "idea-harvester" },
-                    { id: 2, text: "Ask about the location, number of people, and budget before deciding whether to join", value: "detail-inspector" },
-                    { id: 3, text: "Readily agree, hoping to help everyone relieve today's stress", value: "mood-manager" },
-                    { id: 4, text: "Politely decline, wanting to relax in my own way", value: "zen-master" }
+                    { id: 1, text: "Suggest an innovative activity like an escape room", value: "idea-harvester" },
+                    { id: 2, text: "Take initiative to plan the details and ensure smooth execution", value: "detail-inspector" },
+                    { id: 3, text: "Actively participate and boost everyone's energy", value: "mood-manager" },
+                    { id: 4, text: "Join casually but don't want to actively organize", value: "zen-master" }
                 ]
             },
             {
                 id: 9,
-                text: "After a busy day, you finally get home. What do you do?",
+                text: "When facing difficulties at work, what do you usually do?",
                 options: [
-                    { id: 1, text: "Scroll on my phone or watch videos, and end up planning new ideas that come to mind", value: "idea-harvester" },
-                    { id: 2, text: "Check tomorrow's schedule, transportation, and meeting times to make sure everything is clearly arranged", value: "detail-inspector" },
-                    { id: 3, text: "Chat with family/friends, adjusting my mood to a relaxed mode", value: "mood-manager" },
-                    { id: 4, text: "Take a shower, sit quietly for a while, letting my mind completely reset", value: "zen-master" }
+                    { id: 1, text: "Think from different angles to find innovative solutions", value: "idea-harvester" },
+                    { id: 2, text: "Carefully analyze the problem and identify issues in each step", value: "detail-inspector" },
+                    { id: 3, text: "Take immediate action and try various methods to solve it", value: "zero-second-savior" },
+                    { id: 4, text: "Stay calm and wait for the best moment to act", value: "zen-master" }
                 ]
             }
         ]
@@ -192,7 +192,6 @@ const bilingualData = {
             {
                 id: "zen-master",
                 name: "职场佛系王",
-                icon: "/"chill-master.jpg",
                 description: "你拥有平和的心态，能在繁忙的工作中保持冷静，从容应对各种挑战。",
                 catchphrase: "慢慢来，一切都会好的。",
                 performance: [
@@ -202,16 +201,11 @@ const bilingualData = {
                     "能从困境中找到积极的一面"
                 ],
                 challenge: "可能过于被动，缺乏主动性；在需要快速决策时可能犹豫不决。",
-                suitableJobs: ["行政助理","人力资源助理","客服人员","教师","F&B 餐饮服务员"],
-                partner: {
-                    id: "idea-harvester",
-                    reason: "他们能帮你激发创意，带来新的活力和想法。"
-                }
+                suitableJobs: ["心理咨询", "教师", "瑜伽教练", "人力资源", "行政主管"]
             },
             {
                 id: "detail-inspector",
                 name: "细节纠察队",
-                icon: "/"detail-squad.jpg",
                 description: "你拥有敏锐的洞察力，能发现别人忽略的细节，确保工作完美无瑕。",
                 catchphrase: "等一下，这里有个小问题...",
                 performance: [
@@ -221,16 +215,11 @@ const bilingualData = {
                     "追求完美，不轻易放过任何细节"
                 ],
                 challenge: "可能过于纠结细节，影响整体进度；对自己和他人要求过高。",
-                suitableJobs: ["QC品质控制助理","数据分析","编辑校对","项目助理","财务审计","电商后台管理员","库存/仓储管理员"],
-                partner: {
-                    id: "zero-second-savior",
-                    reason: "他们能帮你把握整体进度，在关键时刻做出决策。"
-                }
+                suitableJobs: ["质量控制", "数据分析", "编辑校对", "项目管理", "财务审计"]
             },
             {
                 id: "mood-manager",
                 name: "氛围管理师",
-                icon: "/"energy-keeper.jpg",
                 description: "你拥有营造良好工作氛围的能力，能促进团队合作，提高工作效率。",
                 catchphrase: "大家一起加油！",
                 performance: [
@@ -240,16 +229,11 @@ const bilingualData = {
                     "能创造轻松愉快的工作环境"
                 ],
                 challenge: "可能过于关注他人感受，忽略自己的需求；在需要强硬决策时可能不够果断。",
-                suitableJobs: ["客服人员","人力资源执行员","销售协调员","活动助理","社群管理员","F&B 餐饮主管"],
-                partner: {
-                    id: "detail-inspector",
-                    reason: "他们能帮你完善细节，确保团队的创意想法能够顺利执行。"
-                }
+                suitableJobs: ["团队领导", "人力资源", "培训师", "公关", "活动策划"]
             },
             {
                 id: "idea-harvester",
                 name: "点子收割机",
-                icon: "/"idea-hunter.jpg",
                 description: "你拥有无穷无尽的创意，总能在关键时刻提出令人眼前一亮的点子。",
                 catchphrase: "这个问题，我有个idea！",
                 performance: [
@@ -259,16 +243,11 @@ const bilingualData = {
                     "在压力下依然能保持创造力"
                 ],
                 challenge: "有时想法太多，难以专注执行；细节处理可能不够完善。",
-                suitableJobs: ["数字营销执行员","社交媒体执行员","内容创作者","平面设计师","市场助理","品牌助理","F&B 品牌企划"],
-                partner: {
-                    id: "detail-inspector",
-                    reason: "他们能帮你完善想法的细节，确保创意落地执行。"
-                }
+                suitableJobs: ["创意总监", "产品经理", "市场营销", "广告策划", "创业家"]
             },
             {
                 id: "zero-second-savior",
                 name: "零秒救世主",
-                icon: "/"quick-fixer.jpg",
                 description: "你拥有超强的应变能力，能在紧急情况下迅速做出反应，解决问题。",
                 catchphrase: "别担心，我搞定！",
                 performance: [
@@ -278,18 +257,13 @@ const bilingualData = {
                     "能迅速调整计划应对变化"
                 ],
                 challenge: "可能过于冲动，没有充分考虑后果；长期处于高压状态容易 burnout。",
-                suitableJobs: ["营运执行员","客服（投诉处理）","销售执行员","技术支援","店长/店面主管（F&B）","餐饮班长","项目协调员"],
-                partner: {
-                    id: "zen-master",
-                    reason: "他们能帮你保持平衡，在忙碌中找到平静。"
-                }
+                suitableJobs: ["危机管理", "应急响应", "销售经理", "公关专家", "企业家"]
             }
         ],
         en: [
             {
                 id: "zen-master",
-                name: "Chill Master",
-                icon: "/"chill-master.jpg",
+                name: "Zen Master",
                 description: "You possess a peaceful mindset, able to stay calm in busy work and handle various challenges with ease.",
                 catchphrase: "Take it easy, everything will be fine.",
                 performance: [
@@ -299,16 +273,11 @@ const bilingualData = {
                     "Find positive aspects in difficult situations"
                 ],
                 challenge: "May be too passive and lack initiative; might hesitate when quick decisions are needed.",
-                suitableJobs: ["Admin Assistant","HR Assistant","Customer Service","Teacher","F&B Service Crew"],
-                partner: {
-                    id: "idea-harvester",
-                    reason: "They help spark your creativity and bring new energy and ideas."
-                }
+                suitableJobs: ["Counseling", "Teacher", "Yoga Instructor", "HR", "Admin Manager"]
             },
             {
                 id: "detail-inspector",
                 name: "Detail Inspector",
-                icon: "/"detail-squad.jpg",
                 description: "You have keen insight, able to spot details others miss and ensure flawless work.",
                 catchphrase: "Wait, there's a small issue here...",
                 performance: [
@@ -318,16 +287,11 @@ const bilingualData = {
                     "Pursue perfection, never overlook any detail"
                 ],
                 challenge: "May get too caught up in details, affecting overall progress; high standards for self and others.",
-                suitableJobs: ["QC Assistant","Data Analyst","Editor","Project Assistant","Auditor","E-commerce Admin","Inventory/Stock Controller"],
-                partner: {
-                    id: "zero-second-savior",
-                    reason: "They help you grasp the overall progress and make critical decisions at key moments."
-                }
+                suitableJobs: ["Quality Control", "Data Analyst", "Editor", "Project Manager", "Auditor"]
             },
             {
                 id: "mood-manager",
-                name: "Energy Keeper",
-                icon: "/"energy-keeper.jpg",
+                name: "Mood Manager",
                 description: "You can create a positive work atmosphere, promote teamwork, and improve efficiency.",
                 catchphrase: "Let's go team!",
                 performance: [
@@ -337,16 +301,11 @@ const bilingualData = {
                     "Create a relaxed and pleasant work environment"
                 ],
                 challenge: "May focus too much on others' feelings, neglecting your own needs; might lack decisiveness when tough calls are needed.",
-                suitableJobs: ["Customer Service","HR Executive","Sales Coordinator","Event Assistant","Community Manager","F&B Supervisor"],
-                partner: {
-                    id: "detail-inspector",
-                    reason: "They help you refine details and ensure creative ideas can be executed smoothly."
-                }
+                suitableJobs: ["Team Leader", "HR", "Trainer", "PR", "Event Planner"]
             },
             {
                 id: "idea-harvester",
-                name: "Idea Hunter",
-                icon: "/"idea-hunter.jpg",
+                name: "Idea Harvester",
                 description: "You have endless creativity, always coming up with brilliant ideas at key moments.",
                 catchphrase: "I have an idea for this!",
                 performance: [
@@ -356,16 +315,11 @@ const bilingualData = {
                     "Maintain creativity even under pressure"
                 ],
                 challenge: "Sometimes too many ideas, hard to focus on execution; detail handling may be insufficient.",
-                suitableJobs: ["Digital Marketing Executive","Social Media Executive","Content Creator","Graphic Designer","Marketing Assistant","Brand Assistant","F&B Branding"],
-                partner: {
-                    id: "detail-inspector",
-                    reason: "They help refine your ideas' details and ensure creative concepts are executed properly."
-                }
+                suitableJobs: ["Creative Director", "Product Manager", "Marketing", "Ad Planner", "Entrepreneur"]
             },
             {
                 id: "zero-second-savior",
-                name: "Quick Fixer",
-                icon: "/"quick-fixer.jpg",
+                name: "Zero-Second Savior",
                 description: "You have exceptional adaptability, able to react quickly in emergencies and solve problems.",
                 catchphrase: "Don't worry, I got this!",
                 performance: [
@@ -375,11 +329,7 @@ const bilingualData = {
                     "Quickly adjust plans to handle changes"
                 ],
                 challenge: "May be too impulsive without fully considering consequences; prone to burnout from prolonged high pressure.",
-                suitableJobs: ["Operation Executive","Customer Service (Handling Complaints)","Sales Executive","Technical Support","Store Supervisor / F&B Manager","F&B Shift Leader","Project Coordinator"],
-                partner: {
-                    id: "zen-master",
-                    reason: "They help you maintain balance and find peace in the busy moments."
-                }
+                suitableJobs: ["Crisis Management", "Emergency Response", "Sales Manager", "PR Expert", "Entrepreneur"]
             }
         ]
     }
