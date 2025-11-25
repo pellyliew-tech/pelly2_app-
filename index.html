@@ -1,4 +1,5 @@
 <html lang="zh-CN"><head>
+    <base href="/personality-test/">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>职场超能力测试 - 3分钟测出你的职场底层天赋</title>
@@ -133,7 +134,7 @@
     </style>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&amp;display=swap" rel="stylesheet">
     <!-- Bilingual data -->
-    <script src="https://ricebowl-personality-test.netlify.app/translations-data.js"></script>
+    <script src="translations-data.js"></script>
 </head>
 <body class="bg-gradient-to-br from-blue-50 via-green-50 to-yellow-50 min-h-screen font-sans">
     <!-- 背景装饰 -->
@@ -171,7 +172,7 @@
         <!-- Logo和标题 -->
         <div class="text-center mb-8">
             <div class="mb-4">
-                <img src="https://ricebowl-personality-test.netlify.app/ricebowl-logo.png" alt="公司Logo" class="h-24 mx-auto">
+                <img src="ricebowl-logo.png" alt="公司Logo" class="h-24 mx-auto">
             </div>
             <h1 class="text-[clamp(1.5rem,3vw,2.5rem)] font-bold text-dark mb-2">职场超能力测试：</h1>
             <p class="text-[clamp(1rem,2vw,1.25rem)] text-gray-700 mb-2">想要知道你是零秒救世主还是职场佛系王吗？</p>
@@ -205,7 +206,7 @@
                     <!-- 职场佛系王 -->
                     <div class="bg-white/60 backdrop-blur-sm rounded-xl p-4 text-center border border-zen/20">
                         <div class="w-24 h-24 mx-auto mb-3 rounded-full overflow-hidden border-4 border-zen/20">
-                            <img src="https://ricebowl-personality-test.netlify.app/chill-master.jpg" alt="职场佛系王" class="w-full h-full object-cover">
+                            <img src="chill-master.jpg" alt="职场佛系王" class="w-full h-full object-cover">
                         </div>
                         <h4 class="font-bold text-zen">职场佛系王</h4>
                         <p class="text-xs text-gray-600 mt-2">在高压环境中保持冷静，从容应对各种挑战</p>
@@ -214,7 +215,7 @@
                     <!-- 细节纠察队 -->
                     <div class="bg-white/60 backdrop-blur-sm rounded-xl p-4 text-center border border-detail/20">
                         <div class="w-24 h-24 mx-auto mb-3 rounded-full overflow-hidden border-4 border-detail/20">
-                            <img src="https://ricebowl-personality-test.netlify.app/detail-squad.jpg" alt="细节纠察队" class="w-full h-full object-cover">
+                            <img src="detail-squad.jpg" alt="细节纠察队" class="w-full h-full object-cover">
                         </div>
                         <h4 class="font-bold text-detail">细节纠察队</h4>
                         <p class="text-xs text-gray-600 mt-2">发现别人忽略的细节，确保工作完美无瑕</p>
@@ -223,7 +224,7 @@
                     <!-- 氛围管理师 -->
                     <div class="bg-white/60 backdrop-blur-sm rounded-xl p-4 text-center border border-mood/20">
                         <div class="w-24 h-24 mx-auto mb-3 rounded-full overflow-hidden border-4 border-mood/20">
-                            <img src="https://ricebowl-personality-test.netlify.app/energy-keeper.jpg" alt="氛围管理师" class="w-full h-full object-cover">
+                            <img src="energy-keeper.jpg" alt="氛围管理师" class="w-full h-full object-cover">
                         </div>
                         <h4 class="font-bold text-mood">氛围管理师</h4>
                         <p class="text-xs text-gray-600 mt-2">营造良好工作氛围，促进团队合作</p>
@@ -232,7 +233,7 @@
                     <!-- 点子收割机 -->
                     <div class="bg-white/60 backdrop-blur-sm rounded-xl p-4 text-center border border-idea/20">
                         <div class="w-24 h-24 mx-auto mb-3 rounded-full overflow-hidden border-4 border-idea/20">
-                            <img src="https://ricebowl-personality-test.netlify.app/idea-hunter.jpg" alt="点子收割机" class="w-full h-full object-cover">
+                            <img src="idea-hunter.jpg" alt="点子收割机" class="w-full h-full object-cover">
                         </div>
                         <h4 class="font-bold text-idea">点子收割机</h4>
                         <p class="text-xs text-gray-600 mt-2">拥有无穷无尽的创意，总能提出新想法</p>
@@ -241,7 +242,7 @@
                     <!-- 零秒救世主 -->
                     <div class="bg-white/60 backdrop-blur-sm rounded-xl p-4 text-center border border-zero/20">
                         <div class="w-24 h-24 mx-auto mb-3 rounded-full overflow-hidden border-4 border-zero/20">
-                            <img src="https://ricebowl-personality-test.netlify.app/quick-fixer.jpg" alt="零秒救世主" class="w-full h-full object-cover">
+                            <img src="quick-fixer.jpg" alt="零秒救世主" class="w-full h-full object-cover">
                         </div>
                         <h4 class="font-bold text-zero">零秒救世主</h4>
                         <p class="text-xs text-gray-600 mt-2">在紧急情况下迅速做出反应，解决问题</p>
@@ -971,7 +972,7 @@
             submitBtn.disabled = true;
             submitBtn.innerHTML = `<i class="fa fa-spinner fa-spin mr-2"></i> ${translations.submitting[currentLanguage]}`;
 
-            fetch("/", {
+            fetch(dataForm.action, {
                 method: "POST",
                 headers: { "Content-Type": "application/x-www-form-urlencoded" },
                 body: new URLSearchParams(formData).toString(),
