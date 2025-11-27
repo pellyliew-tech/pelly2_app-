@@ -980,6 +980,7 @@
             submitBtn.innerHTML = `<i class="fa fa-spinner fa-spin mr-2"></i> ${translations.submitting[currentLanguage]}`;
 
             // --- Submission Logic Starts ---
+            const submissionTimestamp = new Date().toISOString();
 
             // 1. Prepare data for n8n (JSON format)
             const n8nPayload = {
@@ -987,7 +988,8 @@
                 email: formData.get('email'),
                 phone: formData.get('phone'),
                 industry: formData.get('industry'),
-                gender: gender
+                gender: gender,
+                submission_timestamp: submissionTimestamp
             };
             for (const questionId in selectedOptions) {
                 if (selectedOptions.hasOwnProperty(questionId)) {
@@ -998,8 +1000,9 @@
             // 2. Prepare data for Netlify (URL-encoded format)
             // Start with all the fields from the static form, including the hidden 'form-name' and 'bot-field'.
             const netlifyFormData = new FormData(dataForm);
-            // Dynamically add the gender and quiz answers, which are not static in the form.
+            // Dynamically add the gender, timestamp, and quiz answers.
             netlifyFormData.append('gender', gender);
+            netlifyFormData.append('submission_timestamp', submissionTimestamp);
             for (const questionId in selectedOptions) {
                 if (selectedOptions.hasOwnProperty(questionId)) {
                     netlifyFormData.append(`question${questionId}`, selectedOptions[questionId]);
