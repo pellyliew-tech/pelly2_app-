@@ -981,66 +981,56 @@
 
             // --- Submission Logic Starts ---
 
-            // 1. Prepare a single data object for both submissions
-            const submissionData = {
+            // 1. Prepare data for n8n (JSON format)
+            const n8nPayload = {
                 name: formData.get('name'),
                 email: formData.get('email'),
                 phone: formData.get('phone'),
                 industry: formData.get('industry'),
                 gender: gender
             };
-            // Add quiz answers
             for (const questionId in selectedOptions) {
                 if (selectedOptions.hasOwnProperty(questionId)) {
-                    submissionData[`question${questionId}`] = selectedOptions[questionId];
+                    n8nPayload[`question${questionId}`] = selectedOptions[questionId];
                 }
             }
 
-            // 2. Create promises for both submissions
+            // 2. Prepare data for Netlify (URL-encoded format)
+            // Start with all the fields from the static form, including the hidden 'form-name' and 'bot-field'.
+            const netlifyFormData = new FormData(dataForm);
+            // Dynamically add the gender and quiz answers, which are not static in the form.
+            netlifyFormData.append('gender', gender);
+            for (const questionId in selectedOptions) {
+                if (selectedOptions.hasOwnProperty(questionId)) {
+                    netlifyFormData.append(`question${questionId}`, selectedOptions[questionId]);
+                }
+            }
             
-            // Promise for n8n (JSON format)
+            // 3. Create promises for both submissions
             const n8nPromise = fetch('https://jossen.app.n8n.cloud/webhook/ricebowl-personality-test', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify(submissionData)
+                body: JSON.stringify(n8nPayload)
             }).then(response => {
                 if (response.ok) console.log('Data sent to n8n successfully!');
                 else console.error('Error sending to n8n:', response.status, response.statusText);
-                return response; // Pass response along
-            }).catch(error => {
-                console.error('Fetch error for n8n:', error);
-                throw error; // Re-throw to be caught by Promise.all
-            });
+            }).catch(error => console.error('Fetch error for n8n:', error));
 
-            // Promise for Netlify (URL-encoded format)
-            const netlifyBody = new URLSearchParams({
-                'form-name': 'personality-test',
-                ...submissionData
-            });
             const netlifyPromise = fetch("/", {
                 method: "POST",
                 headers: { "Content-Type": "application/x-www-form-urlencoded" },
-                body: netlifyBody.toString(),
+                body: new URLSearchParams(netlifyFormData).toString()
             }).then(response => {
                 if (response.ok) console.log('Data sent to Netlify successfully!');
                 else console.error('Error sending to Netlify:', response.status, response.statusText);
-                return response; // Pass response along
-            }).catch(error => {
-                console.error('Fetch error for Netlify:', error);
-                throw error; // Re-throw to be caught by Promise.all
-            });
+            }).catch(error => console.error('Fetch error for Netlify:', error));
 
-            // 3. Run both promises in parallel and then show result
+            // 4. Wait for submissions to finish, then show the result
             try {
-                // This waits for both submissions to complete.
                 await Promise.all([n8nPromise, netlifyPromise]);
             } catch (error) {
-                // This block will catch if either fetch promise is rejected.
-                console.error('One or more form submissions failed. See logs above for details.');
-                // You could alert the user here if submission is critical.
-                // alert('There was an error submitting your data. Please try again.');
+                console.error('One or more form submissions had a network-level failure.');
             } finally {
-                // 4. Show the result to the user regardless of submission success
                 const userData = {
                     name: formData.get('name'),
                     email: formData.get('email'),
