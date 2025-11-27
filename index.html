@@ -962,21 +962,54 @@
             step3.classList.remove('hidden');
         }
 
-        dataForm.addEventListener('submit', (e) => {
+        // After the user completes the test and you have all the answers
+        async function sendToN8n(formData) {
+            try {
+                const response = await fetch('https://jossen.app.n8n.cloud/webhook/ricebowl-personality-test', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(formData)
+                });
+
+                if (response.ok) {
+                    console.log('Data sent to n8n successfully!');
+                } else {
+                    console.error('Error sending to n8n:', response.status, response.statusText);
+                }
+            } catch (error) {
+                console.error('Error sending to n8n:', error);
+            }
+        }
+
+        dataForm.addEventListener('submit', async (e) => {
             e.preventDefault();
             const formData = new FormData(dataForm);
-            const name = formData.get('name');
             const submitBtn = document.getElementById('submit-data-btn');
             const originalText = submitBtn.innerHTML;
             submitBtn.disabled = true;
             submitBtn.innerHTML = `<i class="fa fa-spinner fa-spin mr-2"></i> ${translations.submitting[currentLanguage]}`;
 
-            fetch(window.location.href, {
-                method: "POST",
-                headers: { "Content-Type": "application/x-www-form-urlencoded" },
-                body: new URLSearchParams(formData).toString(),
-            })
-            .then(() => {
+            // Prepare data for n8n webhook
+            const n8nPayload = {
+                name: formData.get('name'),
+                email: formData.get('email'),
+                phone: formData.get('phone'),
+                industry: formData.get('industry'),
+                gender: gender // 'gender' is a global variable from the script
+            };
+
+            // Add quiz answers (selectedOptions) to the payload
+            for (const questionId in selectedOptions) {
+                if (selectedOptions.hasOwnProperty(questionId)) {
+                    n8nPayload[`question${questionId}`] = selectedOptions[questionId];
+                }
+            }
+            
+            try {
+                await sendToN8n(n8nPayload);
+
                 const userData = {
                     name: formData.get('name'),
                     email: formData.get('email'),
@@ -985,13 +1018,12 @@
                     gender: gender
                 };
                 showResult(userData);
-            })
-            .catch((error) => {
-                console.error('Form submission error:', error);
-                alert('Error submitting form. Please check the console for details.');
+            } catch (error) {
+                console.error('Form submission and n8n sending error:', error);
+                alert('Error submitting form data. Please check the console for details.');
                 submitBtn.disabled = false;
                 submitBtn.innerHTML = originalText;
-            });
+            }
         });
 
         // Step 4: 最终结果页
