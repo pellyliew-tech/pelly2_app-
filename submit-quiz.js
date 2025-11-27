@@ -5,14 +5,19 @@ exports.handler = async (event, context) => {
 
   try {
     console.log('Netlify Function received event:', event);
-    const formData = JSON.parse(event.body);
+    // Parse URL-encoded form data
+    const parsedBody = new URLSearchParams(event.body);
+    const formData = {};
+    for (const [key, value] of parsedBody.entries()) {
+        formData[key] = value;
+    }
     console.log('Parsed formData:', formData);
     const n8nWebhookUrl = 'https://jossen.app.n8n.cloud/webhook/quiz-submission';
 
     const response = await fetch(n8nWebhookUrl, {
       method: 'POST',
       headers: {
-        'Content-Type': 'application/json',
+        'Content-Type': 'application/json', // Send as JSON to n8n
       },
       body: JSON.stringify(formData),
     });
