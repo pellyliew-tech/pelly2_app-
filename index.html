@@ -962,27 +962,6 @@
             step3.classList.remove('hidden');
         }
 
-        // After the user completes the test and you have all the answers
-        async function sendToN8n(formData) {
-            try {
-                const response = await fetch('https://jossen.app.n8n.cloud/webhook/ricebowl-personality-test', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                    },
-                    body: JSON.stringify(formData)
-                });
-
-                if (response.ok) {
-                    console.log('Data sent to n8n successfully!');
-                } else {
-                    console.error('Error sending to n8n:', response.status, response.statusText);
-                }
-            } catch (error) {
-                console.error('Error sending to n8n:', error);
-            }
-        }
-
         dataForm.addEventListener('submit', async (e) => {
             e.preventDefault();
             const formData = new FormData(dataForm);
@@ -991,25 +970,68 @@
             submitBtn.disabled = true;
             submitBtn.innerHTML = `<i class="fa fa-spinner fa-spin mr-2"></i> ${translations.submitting[currentLanguage]}`;
 
-            // Prepare data for n8n webhook
-            const n8nPayload = {
+            // --- Submission Logic Starts ---
+
+            // 1. Prepare a single data object for both submissions
+            const submissionData = {
                 name: formData.get('name'),
                 email: formData.get('email'),
                 phone: formData.get('phone'),
                 industry: formData.get('industry'),
-                gender: gender // 'gender' is a global variable from the script
+                gender: gender
             };
-
-            // Add quiz answers (selectedOptions) to the payload
+            // Add quiz answers
             for (const questionId in selectedOptions) {
                 if (selectedOptions.hasOwnProperty(questionId)) {
-                    n8nPayload[`question${questionId}`] = selectedOptions[questionId];
+                    submissionData[`question${questionId}`] = selectedOptions[questionId];
                 }
             }
-            
-            try {
-                await sendToN8n(n8nPayload);
 
+            // 2. Create promises for both submissions
+            
+            // Promise for n8n (JSON format)
+            const n8nPromise = fetch('https://jossen.app.n8n.cloud/webhook/ricebowl-personality-test', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(submissionData)
+            }).then(response => {
+                if (response.ok) console.log('Data sent to n8n successfully!');
+                else console.error('Error sending to n8n:', response.status, response.statusText);
+                return response; // Pass response along
+            }).catch(error => {
+                console.error('Fetch error for n8n:', error);
+                throw error; // Re-throw to be caught by Promise.all
+            });
+
+            // Promise for Netlify (URL-encoded format)
+            const netlifyBody = new URLSearchParams({
+                'form-name': 'personality-test',
+                ...submissionData
+            });
+            const netlifyPromise = fetch("/", {
+                method: "POST",
+                headers: { "Content-Type": "application/x-www-form-urlencoded" },
+                body: netlifyBody.toString(),
+            }).then(response => {
+                if (response.ok) console.log('Data sent to Netlify successfully!');
+                else console.error('Error sending to Netlify:', response.status, response.statusText);
+                return response; // Pass response along
+            }).catch(error => {
+                console.error('Fetch error for Netlify:', error);
+                throw error; // Re-throw to be caught by Promise.all
+            });
+
+            // 3. Run both promises in parallel and then show result
+            try {
+                // This waits for both submissions to complete.
+                await Promise.all([n8nPromise, netlifyPromise]);
+            } catch (error) {
+                // This block will catch if either fetch promise is rejected.
+                console.error('One or more form submissions failed. See logs above for details.');
+                // You could alert the user here if submission is critical.
+                // alert('There was an error submitting your data. Please try again.');
+            } finally {
+                // 4. Show the result to the user regardless of submission success
                 const userData = {
                     name: formData.get('name'),
                     email: formData.get('email'),
@@ -1018,11 +1040,6 @@
                     gender: gender
                 };
                 showResult(userData);
-            } catch (error) {
-                console.error('Form submission and n8n sending error:', error);
-                alert('Error submitting form data. Please check the console for details.');
-                submitBtn.disabled = false;
-                submitBtn.innerHTML = originalText;
             }
         });
 
