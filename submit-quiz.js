@@ -4,8 +4,10 @@ exports.handler = async (event, context) => {
   }
 
   try {
+    console.log('Netlify Function received event:', event);
     const formData = JSON.parse(event.body);
-    const n8nWebhookUrl = 'https://jossen.app.n8n.cloud/webhook-test/quiz-submission';
+    console.log('Parsed formData:', formData);
+    const n8nWebhookUrl = 'https://jossen.app.n8n.cloud/webhook/quiz-submission';
 
     const response = await fetch(n8nWebhookUrl, {
       method: 'POST',
@@ -14,6 +16,9 @@ exports.handler = async (event, context) => {
       },
       body: JSON.stringify(formData),
     });
+
+    console.log('n8n webhook response status:', response.status);
+    console.log('n8n webhook response statusText:', response.statusText);
 
     if (!response.ok) {
       console.error('n8n webhook failed:', response.status, response.statusText);
