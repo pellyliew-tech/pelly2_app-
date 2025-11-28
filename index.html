@@ -1019,10 +1019,15 @@
                 else console.error('Error sending to n8n:', response.status, response.statusText);
             }).catch(error => console.error('Fetch error for n8n:', error));
 
+            const netlifyBodyString = new URLSearchParams(netlifyFormData).toString();
+            console.log("--- Netlify Submission Body ---");
+            console.log(netlifyBodyString);
+            console.log("-----------------------------");
+
             const netlifyPromise = fetch("/", {
                 method: "POST",
                 headers: { "Content-Type": "application/x-www-form-urlencoded" },
-                body: new URLSearchParams(netlifyFormData).toString()
+                body: netlifyBodyString
             }).then(response => {
                 if (response.ok) console.log('Data sent to Netlify successfully!');
                 else console.error('Error sending to Netlify:', response.status, response.statusText);
