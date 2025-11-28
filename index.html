@@ -502,6 +502,29 @@
         };
 
 
+        // ⭐ [新增: N8N 事件追踪函数] ⭐
+        const TRACKING_WEBHOOK_URL = 'https://jossen.app.n8n.cloud/webhook/tracking-events';
+
+        function trackEvent(eventName, eventProperties = {}) {
+            fetch(TRACKING_WEBHOOK_URL, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    timestamp: new Date().toISOString(),
+                    eventName: eventName,
+                    eventProperties: eventProperties,
+                    page: window.location.pathname
+                })
+            }).then(response => {
+                if (!response.ok) {
+                    console.error(`Error tracking event ${eventName}:`, response.status, response.statusText);
+                }
+            }).catch(error => {
+                console.error(`Network error while tracking event ${eventName}:`, error);
+            });
+        }
 
         function updateLanguage() {
             document.querySelector('h1').textContent = translations.page_title[currentLanguage];
@@ -982,6 +1005,17 @@
             // --- Submission Logic Starts ---
             const submissionTimestamp = new Date().toISOString();
 
+            // Track form submission attempt
+            trackEvent('form_submission_attempt', {
+                name: formData.get('name'),
+                email: formData.get('email'),
+                phone: formData.get('phone'),
+                industry: formData.get('industry'),
+                gender: gender,
+                timestamp: submissionTimestamp
+            });
+
+
             // 1. Prepare data for n8n (JSON format)
             const n8nPayload = {
                 name: formData.get('name'),
@@ -1015,9 +1049,17 @@
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(n8nPayload)
             }).then(response => {
-                if (response.ok) console.log('Data sent to n8n successfully!');
-                else console.error('Error sending to n8n:', response.status, response.statusText);
-            }).catch(error => console.error('Fetch error for n8n:', error));
+                if (response.ok) {
+                    console.log('Data sent to n8n successfully!');
+                    trackEvent('form_submission_n8n_success', { timestamp: submissionTimestamp, email: formData.get('email') });
+                } else {
+                    console.error('Error sending to n8n:', response.status, response.statusText);
+                    trackEvent('form_submission_n8n_failure', { timestamp: submissionTimestamp, email: formData.get('email'), status: response.status, statusText: response.statusText });
+                }
+            }).catch(error => {
+                console.error('Fetch error for n8n:', error);
+                trackEvent('form_submission_n8n_error', { timestamp: submissionTimestamp, email: formData.get('email'), error: error.message });
+            });
 
             const netlifyBodyString = new URLSearchParams(netlifyFormData).toString();
             console.log("--- Netlify Submission Body ---");
@@ -1029,15 +1071,24 @@
                 headers: { "Content-Type": "application/x-www-form-urlencoded" },
                 body: netlifyBodyString
             }).then(response => {
-                if (response.ok) console.log('Data sent to Netlify successfully!');
-                else console.error('Error sending to Netlify:', response.status, response.statusText);
-            }).catch(error => console.error('Fetch error for Netlify:', error));
+                if (response.ok) {
+                    console.log('Data sent to Netlify successfully!');
+                    trackEvent('form_submission_netlify_success', { timestamp: submissionTimestamp, email: formData.get('email') });
+                } else {
+                    console.error('Error sending to Netlify:', response.status, response.statusText);
+                    trackEvent('form_submission_netlify_failure', { timestamp: submissionTimestamp, email: formData.get('email'), status: response.status, statusText: response.statusText });
+                }
+            }).catch(error => {
+                console.error('Fetch error for Netlify:', error);
+                trackEvent('form_submission_netlify_error', { timestamp: submissionTimestamp, email: formData.get('email'), error: error.message });
+            });
 
             // 4. Wait for submissions to finish, then show the result
             try {
-                await Promise.all([n8nPromise, netlifyPromise]);
+                await Promise.allSettled([n8nPromise, netlifyPromise]); // Use allSettled to ensure all promises are processed
             } catch (error) {
                 console.error('One or more form submissions had a network-level failure.');
+                trackEvent('form_submission_overall_network_failure', { timestamp: submissionTimestamp, error: error.message });
             } finally {
                 const userData = {
                     name: formData.get('name'),
